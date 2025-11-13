@@ -10,9 +10,12 @@ export const metadata: Metadata = {
   keywords: "agroquímicos, herbicidas, fungicidas, insecticidas, agricultura, México, AG KEM",
   authors: [{ name: "AG KEM" }],
   robots: "index, follow",
+  icons: {
+    icon: "/images/Agkem_logoNoBG.png",
+  },
   openGraph: {
     title: "AG KEM - Innovación para el campo",
-    description: "Soluciones agroquímicas de calidad para el campo mexicano",
+    description: "Soluciones agroquímicos de calidad para el campo mexicano",
     type: "website",
     locale: "es_MX",
     siteName: "AG KEM",
