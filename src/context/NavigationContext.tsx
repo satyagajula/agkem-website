@@ -25,7 +25,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
       setPreviousSection(currentSection);
       setCurrentSection(sectionFromPath);
     }
-  }, [currentSection, pathname]);
+  }, [pathname]);
 
   const handleSetCurrentSection = (section: Section) => {
     setPreviousSection(currentSection);
