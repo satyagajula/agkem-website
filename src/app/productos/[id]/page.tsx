@@ -1,13 +1,14 @@
-'use client';
-
-import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import Link from 'next/link';
 
-const ProductDetail = () => {
-  const params = useParams();
-  const router = useRouter();
-  const id = params.id as string;
+interface ProductDetailProps {
+  params: {
+    id: string;
+  };
+}
+
+const ProductDetail = ({ params }: ProductDetailProps) => {
+  const id = params.id;
 
   const products = [
     {
@@ -35,14 +36,20 @@ const ProductDetail = () => {
 
   const product = products.find(p => p.id === id);
 
-  useEffect(() => {
-    if (!product) {
-      router.push('/productos');
-    }
-  }, [product, router]);
-
   if (!product) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center p-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4 text-gray-800">Producto no encontrado</h1>
+          <Link
+            href="/productos"
+            className="bg-agkem-primary text-white px-6 py-2 rounded-lg hover:bg-agkem-primary/80 transition-colors"
+          >
+            Volver a Productos
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -62,12 +69,12 @@ const ProductDetail = () => {
             <h1 className="text-3xl font-bold mb-4 text-gray-800">{product.name}</h1>
             <p className="text-gray-600 mb-4">{product.description}</p>
             <p className="text-gray-700 mb-6">{product.details}</p>
-            <button
-              onClick={() => router.back()}
-              className="bg-agkem-primary text-white px-6 py-2 rounded-lg hover:bg-agkem-primary/80 transition-colors self-start"
+            <Link
+              href="/productos"
+              className="bg-agkem-primary text-white px-6 py-2 rounded-lg hover:bg-agkem-primary/80 transition-colors self-start inline-block"
             >
               Volver
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -76,3 +83,11 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
+export async function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+}

@@ -33,7 +33,7 @@ const Header: React.FC = () => {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo and Company Name */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 z-10 relative">
             <Logo width={40} height={40} />
             <span className="text-white font-bold text-xl lg:text-2xl tracking-wider">
               AG KEM
@@ -41,14 +41,14 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 z-10 relative">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={`/${item.section === 'inicio' ? '' : item.section}`}
                 className={`text-sm lg:text-base font-medium transition-colors duration-200 ${
                   currentSection === item.section
-                    ? 'text-agkem-primary border-b-4 border-agkem-primary rounded-b-sm'
+                    ? 'text-agkem-primary'
                     : 'text-white hover:text-agkem-primary'
                 }`}
               >
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white hover:text-agkem-primary transition-colors"
+            className="md:hidden text-white hover:text-agkem-primary transition-colors z-10 relative"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -69,7 +69,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-agkem-dark shadow-lg">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-agkem-dark shadow-lg z-10">
             <div className="flex flex-col py-4">
               {menuItems.map((item) => (
                 <Link
