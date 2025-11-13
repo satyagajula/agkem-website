@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased text-gray-800;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-agkem-dark;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-agkem-primary hover:bg-agkem-accent text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-agkem-dark font-semibold py-3 px-6 rounded-lg border-2 border-agkem-primary transition-all duration-300 shadow-md;
+  }
+
+  /* Cards */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Text Styles */
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  .heading-2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  .heading-3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .text-lead {
+    @apply text-lg md:text-xl text-gray-600;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4B7C2C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d6424;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+  background-size: 200% 200%;
+}
