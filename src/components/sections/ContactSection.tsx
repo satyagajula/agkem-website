@@ -80,7 +80,7 @@ import Image from 'next/image';
 
 const ContactSection = () => {
   return (
-    <section className="min-h-screen bg-white flex flex-col lg:flex-row pb-16 sm:pb-20 md:pb-24 lg:pb-16">
+    <section className="min-h-screen bg-white flex flex-col lg:flex-row pb-16 sm:pb-20 md:pb-24 lg:pb-16 overflow-y-auto">
       {/* Left Image Section */}
       <div className="w-full lg:w-1/3 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:items-start lg:justify-start">
         <Image
