@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ContactSection from "@/components/sections/ContactSection";
 
 export default function Contacto() {
-  const { currentSection, previousSection, setCurrentSection } = useNavigation();
+  const { currentSection, setCurrentSection } = useNavation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Contacto() {
   }, [currentSection, setCurrentSection]);
 
   return (
-    <div className="relative animate-gradient">
+    <div className="h-full w-full">
       <ContactSection />
     </div>
   );

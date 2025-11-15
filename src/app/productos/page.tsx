@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ProductsSection from "@/components/sections/ProductsSection";
 
 export default function Productos() {
-  const { currentSection, previousSection, setCurrentSection } = useNavigation();
+  const { currentSection, setCurrentSection } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Productos() {
   }, [currentSection, setCurrentSection]);
 
   return (
-    <div className="relative animate-gradient">
+    <div className="h-full w-full">
       <ProductsSection />
     </div>
   );

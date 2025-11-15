@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AboutSection from "@/components/sections/AboutSection";
 
 export default function Nosotros() {
-  const { currentSection, previousSection, setCurrentSection } = useNavigation();
+  const { currentSection, setCurrentSection } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Nosotros() {
   }, [currentSection, setCurrentSection]);
 
   return (
-    <div className="relative animate-gradient">
+    <div className="h-full w-full">
       <AboutSection />
     </div>
   );

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 
 export default function Home() {
-  const { currentSection, previousSection, setCurrentSection } = useNavigation();
+  const { currentSection, setCurrentSection } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Home() {
   }, [currentSection, setCurrentSection]);
 
   return (
-    <div className="relative animate-gradient">
+    <div className="h-full w-full">
       <HeroSection />
     </div>
   );
