@@ -64,7 +64,7 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
         {/* Back button */}
         <Link
           href="/productos"
-          className="inline-flex items-center gap-2 text-agkem-dark hover:text-agkem-primary transition-colors mb-6 sm:mb-8 touch-manipulation min-h-[44px] group"
+          className="inline-flex items-center gap-2 text-agkem-dark hover:text-agkem-primary transition-colors mb-3 sm:mb-4 lg:mb-4 touch-manipulation min-h-[44px] group"
           data-testid="back-button"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
@@ -72,68 +72,70 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
         </Link>
 
         {/* Product detail card */}
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex-1 lg:flex-none">
+          <div className="flex flex-col lg:flex-row h-full">
             
             {/* Image section */}
-            <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 bg-gray-50 flex items-center justify-center">
-              <div className="relative w-full max-w-md aspect-square">
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10 bg-gray-50 flex items-center justify-center">
+              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
               </div>
             </div>
             
             {/* Content section */}
-            <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-6 xl:p-8 flex flex-col justify-center">
               <h1 
-                className="font-bold mb-4 text-agkem-dark
-                           text-2xl
-                           sm:text-3xl sm:mb-5
-                           md:text-4xl md:mb-6
-                           lg:text-4xl
-                           xl:text-5xl"
+                className="font-bold mb-3 text-agkem-dark
+                           text-xl
+                           sm:text-2xl sm:mb-3
+                           md:text-3xl md:mb-4
+                           lg:text-3xl lg:mb-3
+                           xl:text-4xl xl:mb-4"
               >
                 {product.name}
               </h1>
               
               <p 
-                className="text-gray-700 mb-4 leading-relaxed
-                           text-sm
-                           sm:text-base sm:mb-5
-                           md:text-lg md:mb-6
-                           lg:mb-6"
+                className="text-gray-700 mb-3 leading-relaxed
+                           text-xs
+                           sm:text-sm sm:mb-3
+                           md:text-base md:mb-4
+                           lg:text-sm lg:mb-3
+                           xl:text-base xl:mb-4"
               >
                 {product.description}
               </p>
               
               <p 
-                className="text-gray-600 mb-6 leading-relaxed
-                           text-sm
-                           sm:text-base sm:mb-8
-                           md:text-lg md:mb-10
-                           lg:mb-10"
+                className="text-gray-600 mb-4 leading-relaxed
+                           text-xs
+                           sm:text-sm sm:mb-5
+                           md:text-base md:mb-6
+                           lg:text-sm lg:mb-4
+                           xl:text-base xl:mb-5"
               >
                 {product.details}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-2 xl:gap-3">
                 <Link
                   href="/productos"
-                  className="inline-flex items-center justify-center gap-2 bg-agkem-primary text-white px-6 py-3 rounded-lg hover:bg-agkem-accent transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation min-h-[44px] font-semibold"
+                  className="inline-flex items-center justify-center gap-2 bg-agkem-primary text-white px-4 py-2 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-lg hover:bg-agkem-accent transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation min-h-[44px] font-semibold text-sm lg:text-sm xl:text-base"
                   data-testid="back-to-products-cta"
                 >
-                  <ArrowLeft size={20} />
+                  <ArrowLeft size={18} />
                   Ver Todos los Productos
                 </Link>
                 <Link
                   href="/contacto"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-agkem-dark border-2 border-agkem-primary px-6 py-3 rounded-lg hover:bg-agkem-primary hover:text-white transition-all duration-300 shadow-md touch-manipulation min-h-[44px] font-semibold"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-agkem-dark border-2 border-agkem-primary px-4 py-2 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-lg hover:bg-agkem-primary hover:text-white transition-all duration-300 shadow-md touch-manipulation min-h-[44px] font-semibold text-sm lg:text-sm xl:text-base"
                   data-testid="contact-cta"
                 >
                   Contactar
