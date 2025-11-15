@@ -19,6 +19,23 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [currentSection]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const menuItems = [
     { label: 'Inicio', section: 'inicio' },
     { label: 'Quienes Somos', section: 'nosotros' },
@@ -27,30 +44,41 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-agkem-dark transition-all duration-300 ${
-      isScrolled ? 'shadow-lg' : ''
-    }`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 bg-agkem-dark transition-all duration-300 ${
+        isScrolled ? 'shadow-lg' : ''
+      }`}
+    >
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo and Company Name */}
-          <Link href="/" className="flex items-center space-x-3 z-10 relative">
-            <Logo width={40} height={40} />
-            <span className="text-white font-bold text-xl lg:text-2xl tracking-wider">
+          <Link 
+            href="/" 
+            className="flex items-center space-x-2 sm:space-x-3 z-50 relative"
+            data-testid="header-logo-link"
+          >
+            <Logo 
+              width={36} 
+              height={36} 
+              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10" 
+            />
+            <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl tracking-wider">
               AG KEM
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 z-10 relative">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 z-10 relative">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={`/${item.section === 'inicio' ? '' : item.section}`}
-                className={`text-sm lg:text-base font-medium transition-colors duration-200 ${
+                className={`text-sm lg:text-base font-medium transition-colors duration-200 hover:text-agkem-primary ${
                   currentSection === item.section
                     ? 'text-agkem-primary'
-                    : 'text-white hover:text-agkem-primary'
+                    : 'text-white'
                 }`}
+                data-testid={`header-nav-${item.section}`}
               >
                 {item.label}
               </Link>
@@ -60,35 +88,51 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white hover:text-agkem-primary transition-colors z-10 relative"
-            aria-label="Toggle menu"
+            className="md:hidden text-white hover:text-agkem-primary transition-colors z-50 relative p-2 -mr-2 touch-manipulation"
+            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMobileMenuOpen}
+            data-testid="mobile-menu-button"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-agkem-dark shadow-lg z-10">
+      {/* Mobile Navigation Overlay */}
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Mobile Menu */}
+          <div 
+            className="fixed top-16 left-0 right-0 bottom-0 bg-agkem-dark shadow-xl z-40 md:hidden overflow-y-auto"
+            data-testid="mobile-menu"
+          >
             <div className="flex flex-col py-4">
               {menuItems.map((item) => (
                 <Link
                   key={item.label}
                   href={`/${item.section === 'inicio' ? '' : item.section}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-4 py-3 transition-colors duration-200 text-left ${
+                  className={`px-6 py-4 transition-all duration-200 text-left font-medium touch-manipulation min-h-[44px] flex items-center ${
                     currentSection === item.section
-                      ? 'text-agkem-primary bg-agkem-primary/10 border-l-8 border-agkem-primary rounded-l-sm'
+                      ? 'text-agkem-primary bg-agkem-primary/10 border-l-4 border-agkem-primary'
                       : 'text-white hover:bg-agkem-primary/10 hover:text-agkem-primary'
                   }`}
+                  data-testid={`mobile-nav-${item.section}`}
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
           </div>
-        )}
-      </nav>
+        </>
+      )}
     </header>
   );
 };
