@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="bg-agkem-bg relative min-h-screen overflow-hidden">
+      <body className="bg-agkem-bg relative min-h-screen overflow-x-hidden">
         <NavigationProvider>
           <Header />
           <main className="pt-16 lg:pt-20 min-h-screen">
