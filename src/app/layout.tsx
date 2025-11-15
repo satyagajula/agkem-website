@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className="bg-agkem-bg h-full overflow-x-hidden">
         <NavigationProvider>
           <Header />
-          <main className="h-screen pt-16 lg:pt-20">
+          <main className="h-screen pt-16 lg:pt-20 2xl:pt-28">
             {children}
           </main>
           <Copyright />
