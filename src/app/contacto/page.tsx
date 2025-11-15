@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ContactSection from "@/components/sections/ContactSection";
 
 export default function Contacto() {
-  const { currentSection, setCurrentSection } = useNavation();
+  const { currentSection, setCurrentSection } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
