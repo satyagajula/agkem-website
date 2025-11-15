@@ -29,7 +29,7 @@ const ProductsSection = () => {
         <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 xl:gap-8 h-full">
           
           {/* Left Content Section */}
-          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+          <div className="w-full lg:w-2/3 flex flex-col">
             
             <h2 
               className="font-bold mb-1 uppercase
@@ -77,50 +77,28 @@ const ProductsSection = () => {
             >
               {products.map((product, index) => (
                 <div
-                  key={index}
-                  className="flex items-start gap-2 p-0
-                             sm:gap-3
-                             md:gap-3
-                             lg:gap-2
-                             xl:gap-3"
-                  data-testid={`product-card-${index + 1}`}
-                >
-                  <div className="flex-shrink-0">
+  key={index}
+  className="flex flex-col items-start text-left
+             p-0.5 sm:p-1 md:p-1"
+  data-testid={`product-card-${index + 1}`}
+>
                     <div
-                      className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20 cursor-pointer"
-                      onClick={() => router.push(`/productos/${index + 1}`)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          router.push(`/productos/${index + 1}`);
-                        }
-                      }}
-                    >
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain"
-                        sizes="80px"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-agkem-dark mb-0.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
-                      {product.name}
-                    </h3>
-                    <p
-                      className="text-gray-600 leading-relaxed
-                                 text-[9px]
-                                 sm:text-[10px]
-                                 md:text-xs
-                                 lg:text-[10px]
-                                 xl:text-xs"
-                    >
-                      {product.description}
-                    </p>
-                  </div>
+  className="relative w-14 h-8 sm:w-16 md:w-20 cursor-pointer"
+  onClick={() => router.push(`/productos/${index + 1}`)}
+>
+  <Image
+    src={product.image}
+    alt={product.name}
+    width={100}
+    height={100}
+    className="object-contain"
+  />
+</div>
+  <p className="text-gray-600 leading-relaxed
+                text-[9px] sm:text-[10px] md:text-base">
+    {product.description}
+  </p>
+
                 </div>
               ))}
             </div>
@@ -133,7 +111,8 @@ const ProductsSection = () => {
                 src="/images/Agkem_productBG.png"
                 alt="Products Background"
                 fill
-                className="object-contain rounded-lg shadow-lg"
+                
+                className="object-contain "
                 sizes="33vw"
               />
             </div>

@@ -14,13 +14,14 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-black/20" />
       
       <div 
-        className="relative z-10 w-full max-w-xs mx-4 p-3 rounded-lg text-black
-                   sm:max-w-md sm:mx-6 sm:p-4
-                   md:max-w-2xl md:mx-8 md:p-5
-                   lg:max-w-3xl lg:p-5
-                   xl:max-w-4xl xl:p-7
-                   my-auto"
-        style={{ backgroundColor: 'rgba(245, 245, 245, 0.95)' }}
+        className="relative z-10 w-full max-w-xs mx-4 p-3 rounded-2xl text-black
+                   sm:max-w-md sm:mx-6 sm:p-4 sm:rounded-2xl
+                   md:max-w-2xl md:mx-8 md:p-5 md:rounded-3xl
+                   lg:max-w-3xl lg:p-5 lg:rounded-3xl
+                   xl:max-w-4xl xl:p-7 xl:rounded-3xl
+                   mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16
+                   shadow-xl"
+        style={{ backgroundColor: 'rgba(245, 245, 245, 0.75)' }}
       >
         <h2 
           className="font-bold text-center mb-2
@@ -61,7 +62,7 @@ const AboutSection = () => {
                        sm:[&>li]:pl-6
                        md:[&>li]:pl-7
                        lg:[&>li]:pl-8
-                       [&>li]:before:content-['✓'] 
+                       [&>li]:before:content-['➤'] 
                        [&>li]:before:absolute 
                        [&>li]:before:left-0 
                        [&>li]:before:text-agkem-primary 

@@ -9,20 +9,20 @@ const ContactSection = () => {
         <div className="flex flex-col lg:flex-row gap-3 lg:gap-4 h-full">
           
           {/* Left Image Section */}
-          <div className="w-full lg:w-1/5 flex items-center justify-center lg:items-start">
-            <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-full lg:h-auto lg:max-w-[140px] xl:max-w-[180px] lg:aspect-square">
-              <Image
-                src="/images/Agkem_thanks.png"
-                alt="Contact Background"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 128px, 180px"
-              />
-            </div>
+          <div className="w-full lg:w-1/3 flex items-center justify-center lg:items-start">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-full lg:h-auto lg:max-w-[180px] xl:max-w-[220px] lg:aspect-square mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12">
+  <Image
+    src="/images/Agkem_thanks.png"
+    alt="Contact Background"
+    fill
+    className="object-contain"
+    sizes="(max-width: 768px) 192px, 220px"
+  />
+</div>
           </div>
 
           {/* Right Content Section */}
-          <div className="w-full lg:w-4/5 flex flex-col">
+          <div className="w-full lg:w-2/3 flex flex-col">
             <h2 
               className="font-bold mb-1.5 uppercase
                          text-lg
@@ -53,7 +53,7 @@ const ContactSection = () => {
                          md:p-3 md:mb-3
                          lg:p-1.5 lg:mb-1.5
                          xl:p-2 xl:mb-2" 
-              style={{backgroundColor: "#d8fed0"}}
+              style={{backgroundColor: "#ecfde9"}}
             >
               <h3 
                 className="font-bold mb-1 text-center
@@ -104,7 +104,7 @@ const ContactSection = () => {
                              md:p-3
                              lg:p-1.5
                              xl:p-2" 
-                  style={{backgroundColor: "#d8fed0"}}
+                  style={{backgroundColor: "#ecfde9"}}
                 >
                   <h3 
                     className="font-bold mb-1 text-center
@@ -136,7 +136,7 @@ const ContactSection = () => {
                              md:p-3
                              lg:p-1.5
                              xl:p-2" 
-                  style={{backgroundColor: "#d8fed0"}}
+                  style={{backgroundColor: "#ecfde9"}}
                 >
                   <h3 
                     className="font-bold mb-1 text-center
@@ -169,7 +169,7 @@ const ContactSection = () => {
                            md:p-3
                            lg:p-1.5
                            xl:p-2" 
-                style={{backgroundColor: "#d8fed0"}}
+                style={{backgroundColor: "#ecfde9"}}
               >
                 <h3 
                   className="font-bold mb-1 text-center
