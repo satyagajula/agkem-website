@@ -24,38 +24,38 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="h-full bg-white py-4 sm:py-6 md:py-8 lg:py-6 overflow-y-auto lg:overflow-hidden">
+    <section className="h-full bg-white py-2 sm:py-4 md:py-6 lg:py-3 overflow-y-auto lg:overflow-hidden">
       <div className="container-custom h-full flex flex-col">
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 xl:gap-12 h-full">
+        <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 xl:gap-8 h-full">
           
           {/* Left Content Section */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
             
             <h2 
-              className="font-bold mb-2 uppercase
-                         text-xl
-                         sm:text-2xl sm:mb-3
-                         md:text-3xl md:mb-3
-                         lg:text-3xl lg:mb-4
-                         xl:text-4xl xl:mb-5"
+              className="font-bold mb-1.5 uppercase
+                         text-lg
+                         sm:text-xl sm:mb-2
+                         md:text-2xl md:mb-2
+                         lg:text-2xl lg:mb-2
+                         xl:text-3xl xl:mb-3"
             >
               PRODUCTOS
             </h2>
             
             <p 
-              className="mb-4 text-gray-700
-                         text-xs
-                         sm:text-sm sm:mb-5
-                         md:text-base md:mb-6
-                         lg:text-base lg:mb-6
-                         xl:text-lg xl:mb-8
+              className="mb-2 text-gray-700
+                         text-[10px]
+                         sm:text-xs sm:mb-3
+                         md:text-sm md:mb-4
+                         lg:text-sm lg:mb-3
+                         xl:text-base xl:mb-4
                          leading-relaxed"
             >
               Nuestro portafolio abarca tres categorías principales para el manejo integral de plagas y enfermedades, con diversos modos de acción para favorecer la rotación y la eficacia.
             </p>
 
             {/* Image for mobile/tablet */}
-            <div className="lg:hidden w-full flex justify-center mb-4 sm:mb-6">
+            <div className="lg:hidden w-full flex justify-center mb-3 sm:mb-4">
               <div className="relative w-full max-w-md aspect-[4/3]">
                 <Image
                   src="/images/Agkem_productBG.png"
@@ -69,20 +69,20 @@ const ProductsSection = () => {
             
             {/* Products List */}
             <div 
-              className="flex flex-col gap-3
-                         sm:gap-4
-                         md:gap-5
-                         lg:gap-4
-                         xl:gap-5"
+              className="flex flex-col gap-2
+                         sm:gap-3
+                         md:gap-4
+                         lg:gap-2.5
+                         xl:gap-3"
             >
               {products.map((product, index) => (
                 <div 
                   key={index} 
-                  className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group
-                             sm:gap-4 sm:p-3
-                             md:gap-4 md:p-3
-                             lg:gap-3 lg:p-2
-                             xl:gap-4 xl:p-3"
+                  className="flex items-start gap-2 p-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group
+                             sm:gap-3 sm:p-2
+                             md:gap-3 md:p-2
+                             lg:gap-2 lg:p-1.5
+                             xl:gap-3 xl:p-2"
                   onClick={() => router.push(`/productos/${index + 1}`)}
                   role="button"
                   tabIndex={0}
@@ -94,27 +94,27 @@ const ProductsSection = () => {
                   data-testid={`product-card-${index + 1}`}
                 >
                   <div className="flex-shrink-0">
-                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-20 lg:h-20 xl:w-24 xl:h-24">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
                         className="object-contain group-hover:scale-105 transition-transform duration-300"
-                        sizes="96px"
+                        sizes="80px"
                       />
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-agkem-dark mb-1 text-sm sm:text-base md:text-lg lg:text-base xl:text-lg">
+                    <h3 className="font-semibold text-agkem-dark mb-0.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
                       {product.name}
                     </h3>
                     <p 
                       className="text-gray-600 leading-relaxed
-                                 text-[10px]
-                                 sm:text-xs
-                                 md:text-sm
-                                 lg:text-xs
-                                 xl:text-sm"
+                                 text-[9px]
+                                 sm:text-[10px]
+                                 md:text-xs
+                                 lg:text-[10px]
+                                 xl:text-xs"
                     >
                       {product.description}
                     </p>
@@ -126,7 +126,7 @@ const ProductsSection = () => {
           
           {/* Right Image Section - Desktop only */}
           <div className="hidden lg:flex lg:w-1/3 items-center justify-center">
-            <div className="relative w-full max-w-sm aspect-[4/3]">
+            <div className="relative w-full max-w-xs xl:max-w-sm aspect-[4/3]">
               <Image
                 src="/images/Agkem_productBG.png"
                 alt="Products Background"
