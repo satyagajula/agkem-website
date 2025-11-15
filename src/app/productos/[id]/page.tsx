@@ -39,7 +39,7 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-4 sm:p-6 md:p-8">
+      <div className="h-screen overflow-hidden bg-white flex items-center justify-center p-4 sm:p-6 md:p-8">
         <div className="text-center max-w-md">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-gray-800">
             Producto no encontrado
@@ -58,8 +58,8 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-white py-8 sm:py-10 md:py-12 lg:py-16 pb-24 sm:pb-28 md:pb-32">
-      <div className="container-custom">
+    <div className="h-screen overflow-y-auto lg:overflow-hidden bg-white py-4 sm:py-6 md:py-8 lg:py-8 pb-24 sm:pb-28 md:pb-32 lg:pb-16">
+      <div className="container-custom h-full flex flex-col lg:justify-center">
         
         {/* Back button */}
         <Link
