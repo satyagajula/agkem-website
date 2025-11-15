@@ -4,11 +4,11 @@ const AboutSection = () => {
   return (
     <section 
       className="relative w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden
-                 py-2
-                 sm:py-4
-                 md:py-6
-                 lg:py-4
-                 2xl:py-8" 
+                 py-2 pb-24
+                 sm:py-4 sm:pb-28
+                 md:py-6 md:pb-32
+                 lg:py-4 lg:pb-24
+                 2xl:py-8 2xl:pb-36" 
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
       {/* Overlay for background visibility */}
