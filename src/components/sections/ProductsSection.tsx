@@ -24,59 +24,65 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-white py-8 sm:py-10 md:py-12 lg:py-16">
-      <div className="container-custom">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
+    <section className="h-screen overflow-hidden bg-white py-4 sm:py-6 md:py-8 lg:py-10">
+      <div className="container-custom h-full flex flex-col">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 xl:gap-12 h-full overflow-y-auto lg:overflow-hidden">
           
           {/* Left Content Section */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
             
             <h2 
-              className="font-bold mb-3 uppercase
-                         text-2xl
-                         sm:text-3xl sm:mb-4
-                         md:text-4xl md:mb-5
-                         lg:text-4xl lg:mb-6
-                         xl:text-5xl"
+              className="font-bold mb-2 uppercase
+                         text-xl
+                         sm:text-2xl sm:mb-3
+                         md:text-3xl md:mb-3
+                         lg:text-3xl lg:mb-4
+                         xl:text-4xl xl:mb-5"
             >
               PRODUCTOS
             </h2>
             
             <p 
-              className="mb-6 text-gray-700
-                         text-sm
-                         sm:text-base sm:mb-8
-                         md:text-lg md:mb-10
-                         lg:text-lg lg:mb-12
+              className="mb-4 text-gray-700
+                         text-xs
+                         sm:text-sm sm:mb-5
+                         md:text-base md:mb-6
+                         lg:text-base lg:mb-6
+                         xl:text-lg xl:mb-8
                          leading-relaxed"
             >
               Nuestro portafolio abarca tres categorías principales para el manejo integral de plagas y enfermedades, con diversos modos de acción para favorecer la rotación y la eficacia.
             </p>
 
-            {/* Image for mobile/tablet - between description and products */}
-            <div className="lg:hidden w-full flex justify-center mb-8 sm:mb-10">
+            {/* Image for mobile/tablet */}
+            <div className="lg:hidden w-full flex justify-center mb-4 sm:mb-6">
               <div className="relative w-full max-w-md aspect-[4/3]">
                 <Image
                   src="/images/Agkem_productBG.png"
                   alt="Products Background"
                   fill
                   className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 90vw, 50vw"
                 />
               </div>
             </div>
             
             {/* Products List */}
             <div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6
-                         sm:gap-8
-                         md:gap-10
-                         lg:gap-8"
+              className="flex flex-col gap-3
+                         sm:gap-4
+                         md:gap-5
+                         lg:gap-4
+                         xl:gap-5"
             >
               {products.map((product, index) => (
                 <div 
                   key={index} 
-                  className="flex flex-col sm:flex-row lg:flex-row items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group"
+                  className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group
+                             sm:gap-4 sm:p-3
+                             md:gap-4 md:p-3
+                             lg:gap-3 lg:p-2
+                             xl:gap-4 xl:p-3"
                   onClick={() => router.push(`/productos/${index + 1}`)}
                   role="button"
                   tabIndex={0}
@@ -88,27 +94,27 @@ const ProductsSection = () => {
                   data-testid={`product-card-${index + 1}`}
                 >
                   <div className="flex-shrink-0">
-                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-28 lg:h-28 xl:w-32 xl:h-32">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-20 lg:h-20 xl:w-24 xl:h-24">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
                         className="object-contain group-hover:scale-105 transition-transform duration-300"
-                        sizes="(max-width: 768px) 96px, 128px"
+                        sizes="96px"
                       />
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-agkem-dark mb-2 text-base sm:text-lg md:text-xl">
+                    <h3 className="font-semibold text-agkem-dark mb-1 text-sm sm:text-base md:text-lg lg:text-base xl:text-lg">
                       {product.name}
                     </h3>
                     <p 
                       className="text-gray-600 leading-relaxed
-                                 text-xs
-                                 sm:text-sm
-                                 md:text-base
-                                 lg:text-sm
-                                 xl:text-base"
+                                 text-[10px]
+                                 sm:text-xs
+                                 md:text-sm
+                                 lg:text-xs
+                                 xl:text-sm"
                     >
                       {product.description}
                     </p>
@@ -118,15 +124,15 @@ const ProductsSection = () => {
             </div>
           </div>
           
-          {/* Right Image Section - Hidden on mobile/tablet, visible on desktop */}
-          <div className="hidden lg:flex lg:w-1/3 items-start justify-center pt-20">
-            <div className="relative w-full max-w-sm aspect-[4/3] sticky top-24">
+          {/* Right Image Section - Desktop only */}
+          <div className="hidden lg:flex lg:w-1/3 items-center justify-center">
+            <div className="relative w-full max-w-sm aspect-[4/3]">
               <Image
                 src="/images/Agkem_productBG.png"
                 alt="Products Background"
                 fill
                 className="object-cover rounded-lg shadow-lg"
-                sizes="(max-width: 1024px) 0vw, 33vw"
+                sizes="33vw"
               />
             </div>
           </div>

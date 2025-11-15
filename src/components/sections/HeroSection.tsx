@@ -11,18 +11,18 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative w-full min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] bg-cover bg-center bg-no-repeat flex flex-col"
+      className="relative w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ 
         backgroundImage: "url('/images/Agkem_homeBackground.png')",
         backgroundPosition: "center 70%",
         backgroundSize: "cover"
       }}
     >
-      {/* Brightness overlay - better than filter */}
+      {/* Brightness overlay */}
       <div className="absolute inset-0 bg-white/10" />
 
       {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col h-full min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Main heading - responsive positioning */}
         <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:px-16">
           <h1 
@@ -43,7 +43,7 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Centered tagline - flexible centering */}
+        {/* Centered tagline */}
         <div 
           className="flex-1 flex items-center justify-center px-4
                      sm:px-6

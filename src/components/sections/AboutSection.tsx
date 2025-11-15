@@ -3,41 +3,41 @@
 const AboutSection = () => {
   return (
     <section 
-      className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center
-                 py-8
-                 sm:py-12
-                 md:py-16
-                 lg:py-20" 
+      className="relative w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center
+                 py-4
+                 sm:py-6
+                 md:py-8
+                 lg:py-12" 
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
       
       <div 
-        className="w-full max-w-xs mx-4 p-4 rounded-lg text-black
-                   sm:max-w-md sm:mx-6 sm:p-5
-                   md:max-w-2xl md:mx-8 md:p-6
-                   lg:max-w-3xl lg:p-8
-                   xl:max-w-4xl xl:p-10
+        className="w-full max-w-xs mx-4 p-3 rounded-lg text-black
+                   sm:max-w-md sm:mx-6 sm:p-4
+                   md:max-w-2xl md:mx-8 md:p-5
+                   lg:max-w-3xl lg:p-6
+                   xl:max-w-4xl xl:p-8
                    my-auto" 
         style={{ backgroundColor: '#f0ddab' }}
       >
         <h2 
-          className="font-bold text-center mb-4
-                     text-xl
-                     sm:text-2xl sm:mb-5
-                     md:text-3xl md:mb-6
-                     lg:text-4xl lg:mb-8
-                     xl:text-5xl"
+          className="font-bold text-center mb-3
+                     text-lg
+                     sm:text-xl sm:mb-4
+                     md:text-2xl md:mb-4
+                     lg:text-3xl lg:mb-5
+                     xl:text-4xl xl:mb-6"
         >
           SOBRE NOSOTROS
         </h2>
         
         <p 
-          className="mb-4 text-white p-3 rounded
-                     text-xs
-                     sm:text-sm sm:mb-5 sm:p-4
-                     md:text-base md:mb-6 md:p-5
-                     lg:text-lg lg:p-6
-                     xl:text-xl
+          className="mb-3 text-white p-2 rounded
+                     text-[10px]
+                     sm:text-xs sm:mb-3 sm:p-3
+                     md:text-sm md:mb-4 md:p-4
+                     lg:text-base lg:p-5 lg:mb-4
+                     xl:text-lg xl:p-6 xl:mb-5
                      leading-relaxed" 
           style={{ backgroundColor: '#2C3E2C', opacity: 0.9 }}
         >
@@ -46,28 +46,29 @@ const AboutSection = () => {
           confiabilidad en el suministro; con un portafolio en crecimiento de productos y servicios.
         </p>
         
-        <div className="p-2 rounded-lg sm:p-3 md:p-4">
+        <div className="p-1 rounded-lg sm:p-2 md:p-2 lg:p-3">
           <ul 
-            className="list-none space-y-2
-                       text-xs
-                       sm:text-sm sm:space-y-3
-                       md:text-base md:space-y-3
-                       lg:text-lg lg:space-y-4
-                       xl:text-xl
+            className="list-none space-y-1
+                       text-[10px]
+                       sm:text-xs sm:space-y-1.5
+                       md:text-sm md:space-y-2
+                       lg:text-base lg:space-y-2
+                       xl:text-lg xl:space-y-3
                        [&>li]:relative 
-                       [&>li]:pl-7
-                       sm:[&>li]:pl-8
-                       md:[&>li]:pl-9
-                       lg:[&>li]:pl-10
+                       [&>li]:pl-5
+                       sm:[&>li]:pl-6
+                       md:[&>li]:pl-7
+                       lg:[&>li]:pl-8
                        [&>li]:before:content-['✓'] 
                        [&>li]:before:absolute 
                        [&>li]:before:left-0 
                        [&>li]:before:text-agkem-primary 
                        [&>li]:before:font-bold 
-                       [&>li]:before:text-lg
-                       sm:[&>li]:before:text-xl
-                       md:[&>li]:before:text-2xl
-                       lg:[&>li]:before:text-3xl"
+                       [&>li]:before:text-sm
+                       sm:[&>li]:before:text-base
+                       md:[&>li]:before:text-lg
+                       lg:[&>li]:before:text-xl
+                       xl:[&>li]:before:text-2xl"
           >
             <li>
               <strong>Innovadores</strong>: mejora continua en formulaciones y procesos.
