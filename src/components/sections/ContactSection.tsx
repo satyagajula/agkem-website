@@ -164,12 +164,12 @@ const ContactSection = () => {
 
               {/* UBICACIÓN CORPORATIVA */}
               <div 
-                className="text-darkgrey p-1.5 rounded-lg
+                className="text-darkgrey p-1.5 rounded-lg flex flex-col
                            sm:p-2
                            md:p-3
                            lg:p-1.5
                            xl:p-2" 
-                style={{backgroundColor: "#8dd57d"}}
+                style={{backgroundColor: "#d8fed0"}}
               >
                 <h3 
                   className="font-bold mb-1 text-center
@@ -181,7 +181,7 @@ const ContactSection = () => {
                 >
                   UBICACIÓN CORPORATIVA
                 </h3>
-                <div className="space-y-1 lg:space-y-1 xl:space-y-1">
+                <div className="flex-1 flex flex-col justify-between space-y-1 lg:space-y-1 xl:space-y-1">
                   <div className="space-y-0.5">
                     <p className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[9px] xl:text-[10px]">
                       <strong>Dirección:</strong> Calle Asunción #1653, Guadalajara, Jalisco, México
@@ -190,10 +190,10 @@ const ContactSection = () => {
                       <strong>Horario:</strong> Lunes a Viernes, 9:00–18:00 (hora local)
                     </p>
                   </div>
-                  <div className="w-full">
+                  <div className="w-full flex-shrink-0">
                     <iframe
                       src="https://maps.google.com/maps?q=Calle+Asunción+1653,+Guadalajara,+Jalisco,+México&output=embed"
-                      className="w-full h-24 sm:h-32 md:h-40 lg:h-24 xl:h-32 rounded-lg"
+                      className="w-full h-20 sm:h-24 md:h-32 lg:h-20 xl:h-24 rounded-lg"
                       style={{border:0}}
                       allowFullScreen={true}
                       loading="lazy"
