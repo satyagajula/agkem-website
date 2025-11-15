@@ -51,12 +51,12 @@ const HeroSection = () => {
                      lg:px-12
                      xl:px-16
                      2xl:px-24
-                     pb-16
-                     sm:pb-20
-                     md:pb-24
-                     lg:pb-20
-                     xl:pb-24
-                     2xl:pb-32"
+                     pb-32
+                     sm:pb-36
+                     md:pb-40
+                     lg:pb-32
+                     xl:pb-40
+                     2xl:pb-48"
         >
           <p 
             className={`font-gordita text-center max-w-4xl 2xl:max-w-6xl
