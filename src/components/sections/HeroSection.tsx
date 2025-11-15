@@ -24,7 +24,7 @@ const HeroSection = () => {
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Main heading */}
-        <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:px-16">
+        <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:pt-20 2xl:px-20">
           <h1 
             className={`font-gordita font-bold max-w-full break-words
                        text-2xl
@@ -32,7 +32,7 @@ const HeroSection = () => {
                        md:text-4xl
                        lg:text-5xl
                        xl:text-6xl
-                       2xl:text-7xl
+                       2xl:text-8xl
                        leading-tight
                        transition-opacity duration-500 ${
                          isMounted ? 'opacity-100' : 'opacity-0'
@@ -50,20 +50,22 @@ const HeroSection = () => {
                      md:px-8
                      lg:px-12
                      xl:px-16
+                     2xl:px-24
                      pb-16
                      sm:pb-20
                      md:pb-24
                      lg:pb-20
-                     xl:pb-24"
+                     xl:pb-24
+                     2xl:pb-32"
         >
           <p 
-            className={`font-gordita text-center max-w-4xl
+            className={`font-gordita text-center max-w-4xl 2xl:max-w-6xl
                        text-xl
                        sm:text-2xl
                        md:text-3xl
                        lg:text-4xl
                        xl:text-5xl
-                       2xl:text-6xl
+                       2xl:text-7xl
                        leading-tight
                        px-4
                        transition-opacity duration-700 delay-300 ${

@@ -7,7 +7,8 @@ const AboutSection = () => {
                  py-2
                  sm:py-4
                  md:py-6
-                 lg:py-4" 
+                 lg:py-4
+                 2xl:py-8" 
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
       {/* Overlay for background visibility */}
@@ -19,6 +20,7 @@ const AboutSection = () => {
                    md:max-w-2xl md:mx-8 md:p-5
                    lg:max-w-3xl lg:p-5
                    xl:max-w-4xl xl:p-7
+                   2xl:max-w-6xl 2xl:p-12
                    my-auto"
         style={{ backgroundColor: 'rgba(245, 245, 245, 0.95)' }}
       >
@@ -28,7 +30,8 @@ const AboutSection = () => {
                      sm:text-lg sm:mb-2
                      md:text-xl md:mb-2
                      lg:text-2xl lg:mb-2
-                     xl:text-3xl xl:mb-3"
+                     xl:text-3xl xl:mb-3
+                     2xl:text-5xl 2xl:mb-6"
         >
           SOBRE NOSOTROS
         </h2>
@@ -40,6 +43,7 @@ const AboutSection = () => {
                      md:text-sm md:mb-2
                      lg:text-base lg:mb-2
                      xl:text-lg xl:mb-3
+                     2xl:text-2xl 2xl:mb-5
                      leading-relaxed
                      text-gray-800" 
         >
@@ -56,11 +60,13 @@ const AboutSection = () => {
                        md:text-sm md:space-y-1
                        lg:text-base lg:space-y-1
                        xl:text-lg xl:space-y-1.5
+                       2xl:text-2xl 2xl:space-y-3
                        [&>li]:relative 
                        [&>li]:pl-5
                        sm:[&>li]:pl-6
                        md:[&>li]:pl-7
                        lg:[&>li]:pl-8
+                       2xl:[&>li]:pl-12
                        [&>li]:before:content-['✓'] 
                        [&>li]:before:absolute 
                        [&>li]:before:left-0 
@@ -70,7 +76,8 @@ const AboutSection = () => {
                        sm:[&>li]:before:text-base
                        md:[&>li]:before:text-lg
                        lg:[&>li]:before:text-xl
-                       xl:[&>li]:before:text-2xl"
+                       xl:[&>li]:before:text-2xl
+                       2xl:[&>li]:before:text-4xl"
           >
             <li>
               <strong>Innovadores</strong>: mejora continua en formulaciones y procesos.

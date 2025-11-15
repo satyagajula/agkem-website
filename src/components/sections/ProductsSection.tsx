@@ -24,9 +24,9 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="h-full bg-white py-2 sm:py-4 md:py-6 lg:py-3 overflow-y-auto lg:overflow-hidden">
+    <section className="h-full bg-white py-2 sm:py-4 md:py-6 lg:py-3 2xl:py-8 overflow-y-auto lg:overflow-hidden">
       <div className="container-custom h-full flex flex-col">
-        <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 xl:gap-8 h-full">
+        <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 xl:gap-8 2xl:gap-16 h-full">
           
           {/* Left Content Section */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
@@ -37,7 +37,8 @@ const ProductsSection = () => {
                          sm:text-xl sm:mb-1.5
                          md:text-2xl md:mb-1.5
                          lg:text-2xl lg:mb-1.5
-                         xl:text-3xl xl:mb-2"
+                         xl:text-3xl xl:mb-2
+                         2xl:text-5xl 2xl:mb-4"
             >
               PRODUCTOS
             </h2>
@@ -49,6 +50,7 @@ const ProductsSection = () => {
                          md:text-sm md:mb-3
                          lg:text-sm lg:mb-2
                          xl:text-base xl:mb-3
+                         2xl:text-2xl 2xl:mb-6
                          leading-relaxed"
             >
               Nuestro portafolio abarca tres categorías principales para el manejo integral de plagas y enfermedades, con diversos modos de acción para favorecer la rotación y la eficacia.
@@ -73,21 +75,23 @@ const ProductsSection = () => {
                          sm:gap-2
                          md:gap-3
                          lg:gap-2
-                         xl:gap-2.5"
+                         xl:gap-2.5
+                         2xl:gap-6"
             >
               {products.map((product, index) => (
-                <div
-                  key={index}
+                <div 
+                  key={index} 
                   className="flex items-start gap-2 p-0
                              sm:gap-3
                              md:gap-3
                              lg:gap-2
-                             xl:gap-3"
+                             xl:gap-3
+                             2xl:gap-6"
                   data-testid={`product-card-${index + 1}`}
                 >
                   <div className="flex-shrink-0">
-                    <div
-                      className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20 cursor-pointer"
+                    <div 
+                      className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-32 2xl:h-32 cursor-pointer"
                       onClick={() => router.push(`/productos/${index + 1}`)}
                       role="button"
                       tabIndex={0}
@@ -102,21 +106,22 @@ const ProductsSection = () => {
                         alt={product.name}
                         fill
                         className="object-contain"
-                        sizes="80px"
+                        sizes="(max-width: 768px) 80px, (max-width: 1536px) 80px, 128px"
                       />
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-agkem-dark mb-0.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
+                    <h3 className="font-semibold text-agkem-dark mb-0.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-2xl 2xl:mb-2">
                       {product.name}
                     </h3>
-                    <p
+                    <p 
                       className="text-gray-600 leading-relaxed
                                  text-[9px]
                                  sm:text-[10px]
                                  md:text-xs
                                  lg:text-[10px]
-                                 xl:text-xs"
+                                 xl:text-xs
+                                 2xl:text-xl"
                     >
                       {product.description}
                     </p>
