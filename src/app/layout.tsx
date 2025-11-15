@@ -36,10 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="bg-agkem-bg relative min-h-screen overflow-x-hidden">
+      <body className="bg-agkem-bg relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
         <NavigationProvider>
           <Header />
-          <main className="pt-16 lg:pt-20 min-h-screen">
+          <main className="pt-16 lg:pt-20">
             {children}
           </main>
           <Copyright />
