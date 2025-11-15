@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 const ContactSection = () => {
   return (
-    <section className="h-screen overflow-hidden bg-white py-4 sm:py-6 md:py-8 lg:py-10 pb-20 sm:pb-24 md:pb-28 lg:pb-16">
+    <section className="h-full bg-white py-4 sm:py-6 md:py-8 lg:py-6 pb-20 sm:pb-24 md:pb-28 lg:pb-20 overflow-y-auto lg:overflow-hidden">
       <div className="container-custom h-full">
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 h-full overflow-y-auto lg:overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 h-full">
           
           {/* Left Image Section */}
           <div className="w-full lg:w-1/4 flex items-center justify-center lg:items-start">

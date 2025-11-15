@@ -24,9 +24,9 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="h-screen overflow-hidden bg-white py-4 sm:py-6 md:py-8 lg:py-10">
+    <section className="h-full bg-white py-4 sm:py-6 md:py-8 lg:py-6 overflow-y-auto lg:overflow-hidden">
       <div className="container-custom h-full flex flex-col">
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 xl:gap-12 h-full overflow-y-auto lg:overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 xl:gap-12 h-full">
           
           {/* Left Content Section */}
           <div className="w-full lg:w-2/3 flex flex-col justify-center">

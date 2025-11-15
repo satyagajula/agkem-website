@@ -3,11 +3,11 @@
 const AboutSection = () => {
   return (
     <section 
-      className="relative w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center
+      className="relative w-full h-full bg-cover bg-center bg-no-repeat flex items-center justify-center
                  py-4
                  sm:py-6
                  md:py-8
-                 lg:py-12" 
+                 lg:py-8" 
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
       

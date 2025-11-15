@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col"
+      className="relative w-full h-full bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ 
         backgroundImage: "url('/images/Agkem_homeBackground.png')",
         backgroundPosition: "center 70%",
@@ -23,7 +23,7 @@ const HeroSection = () => {
 
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col h-full">
-        {/* Main heading - responsive positioning */}
+        {/* Main heading */}
         <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:px-16">
           <h1 
             className={`font-gordita font-bold max-w-full break-words
@@ -53,8 +53,8 @@ const HeroSection = () => {
                      pb-16
                      sm:pb-20
                      md:pb-24
-                     lg:pb-28
-                     xl:pb-32"
+                     lg:pb-20
+                     xl:pb-24"
         >
           <p 
             className={`font-gordita text-center max-w-4xl
