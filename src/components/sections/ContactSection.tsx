@@ -1,265 +1,191 @@
-// import Image from 'next/image';
-
-// const ContactSection = () => {
-//   return (
-//     <section className="min-h-screen bg-white flex pb-16">
-//       <div className="w-1/3 flex items-start justify-start p-8">
-//         <Image
-//           src="/images/Agkem_thanks.png"
-//           alt="Contact Background"
-//           width={300}
-//           height={300}
-//           className="max-w-full max-h-full object-contain"
-//         />
-//       </div>
-//       <div className="w-2/3 flex flex-col justify-start p-8">
-//         <h2 className="text-lg font-bold mb-2">CONTACTO</h2>
-//         <p className="text-sm mb-2">
-//           Para consultas comerciales o técnicas, contáctanos directamente.
-//         </p>
-//         <div className="text-darkgrey p-2 rounded mb-2" style={{backgroundColor: "#8dd57d"}}>
-//           <h3 className="text-sm font-bold mb-2 text-center">Altiplano y Sureste</h3>
-//           <div className="grid grid-cols-2 gap-8">
-//             <div>
-//               <p className="text-xs"><strong>Contacto:</strong> Cicerón Maza</p>
-//               <p className="text-xs"><strong>Teléfono/WhatsApp:</strong> +52 96 1233 4597</p>
-//               <p className="text-xs"><strong>Email:</strong> ciceron.maza@ag-kem.com</p>
-//             </div>
-//             <div>
-//               <p className="text-xs"><strong>Contacto:</strong> Omar Mora</p>
-//               <p className="text-xs"><strong>Teléfono/WhatsApp:</strong> +52 249 101 0701</p>
-//               <p className="text-xs"><strong>Email:</strong> ome_agronomo46@hotmail.com</p>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="flex gap-2">
-//           <div className="flex flex-col gap-2 flex-1">
-//             <div className="text-darkgrey p-2 rounded" style={{backgroundColor: "#8dd57d"}}>
-//               <h3 className="text-sm font-bold mb-2 text-center">Dirección Comercial</h3>
-//               <p className="text-xs"><strong>Contacto:</strong> Sergio Moraila</p>
-//               <p className="text-xs"><strong>Teléfono/WhatsApp:</strong> +52 33 2258 4777</p>
-//               <p className="text-xs"><strong>Email:</strong> sergio.moraila@ag-kem.com</p>
-//             </div>
-//             <div className="text-darkgrey p-2 rounded" style={{backgroundColor: "#8dd57d"}}>
-//               <h3 className="text-sm font-bold mb-2 text-center">Noroeste</h3>
-//               <p className="text-xs"><strong>Contacto:</strong> Mario Ballesteros</p>
-//               <p className="text-xs"><strong>Teléfono/WhatsApp:</strong> +52 64 420 2414</p>
-//               <p className="text-xs"><strong>Email:</strong> mariobamx@yahoo.com.mx</p>
-//             </div>
-//           </div>
-//           <div className="text-darkgrey p-2 rounded flex-1" style={{backgroundColor: "#8dd57d"}}>
-//             <h3 className="text-sm font-bold mb-2 text-center">UBICACIÓN CORPORATIVA</h3>
-//             <div className="grid grid-cols-2 gap-4">
-//               <div>
-//                 <p className="text-xs mb-2"><strong>Dirección:</strong> Calle Asunción #1653, Guadalajara, Jalisco, México</p>
-//                 <p className="text-xs"><strong>Horario:</strong> Lunes a Viernes, 9:00–18:00 (hora local)</p>
-//               </div>
-//               <div>
-//                 <iframe
-//                   src="https://maps.google.com/maps?q=Calle+Asunción+1653,+Guadalajara,+Jalisco,+México&output=embed"
-//                   width="100%"
-//                   height="150"
-//                   style={{border:0}}
-//                   allowFullScreen={true}
-//                   loading="lazy"
-//                   referrerPolicy="no-referrer-when-downgrade"
-//                 ></iframe>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ContactSection;
-
+'use client';
 
 import Image from 'next/image';
 
 const ContactSection = () => {
   return (
-    <section className="max-h-screen bg-white flex flex-col lg:flex-row pb-16 sm:pb-20 md:pb-24 lg:pb-16 overflow-y-auto">
-      {/* Left Image Section */}
-      <div className="w-full lg:w-1/3 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:items-start lg:justify-start">
-        <Image
-          src="/images/Agkem_thanks.png"
-          alt="Contact Background"
-          width={300}
-          height={300}
-          className="max-w-full max-h-full object-contain
-                     w-40 h-40
-                     sm:w-48 sm:h-48
-                     md:w-56 md:h-56
-                     lg:w-64 lg:h-64
-                     xl:w-72 xl:h-72"
-        />
-      </div>
-
-      {/* Right Content Section */}
-      <div className="w-full lg:w-2/3 flex flex-col justify-start p-4 sm:p-6 md:p-4 lg:p-8">
-        <h2 
-          className="font-bold mb-2 uppercase
-                     text-base
-                     sm:text-lg sm:mb-3
-                     md:text-base md:mb-2
-                     lg:text-lg lg:mb-2"
-        >
-          CONTACTO
-        </h2>
-        
-        <p 
-          className="mb-3 text-gray-700
-                     text-xs
-                     sm:text-sm sm:mb-4
-                     md:text-xs md:mb-2
-                     lg:text-sm lg:mb-2"
-        >
-          Para consultas comerciales o técnicas, contáctanos directamente.
-        </p>
-
-        {/* Altiplano y Sureste */}
-        <div 
-          className="text-darkgrey p-3 rounded mb-3
-                     sm:p-4 sm:mb-4
-                     md:p-2 md:mb-2
-                     lg:p-2 lg:mb-2" 
-          style={{backgroundColor: "#8dd57d"}}
-        >
-          <h3 
-            className="font-bold mb-2 text-center
-                       text-xs
-                       sm:text-sm sm:mb-3
-                       md:text-xs md:mb-1.5
-                       lg:text-sm lg:mb-2"
-          >
-            Altiplano y Sureste
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-3 lg:gap-8">
-            <div>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Contacto:</strong> Cicerón Maza
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Teléfono/WhatsApp:</strong> +52 96 1233 4597
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Email:</strong> ciceron.maza@ag-kem.com
-              </p>
-            </div>
-            <div>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Contacto:</strong> Omar Mora
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Teléfono/WhatsApp:</strong> +52 249 101 0701
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Email:</strong> ome_agronomo46@hotmail.com
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom sections container */}
-        <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-2 lg:gap-2">
-          {/* Left Column */}
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-2 lg:gap-2 lg:flex-1">
-            {/* Dirección Comercial */}
-            <div 
-              className="text-darkgrey p-3 rounded
-                         sm:p-4
-                         md:p-2
-                         lg:p-2" 
-              style={{backgroundColor: "#8dd57d"}}
-            >
-              <h3 
-                className="font-bold mb-2 text-center
-                           text-xs
-                           sm:text-sm sm:mb-3
-                           md:text-xs md:mb-1.5
-                           lg:text-sm lg:mb-2"
-              >
-                Dirección Comercial
-              </h3>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Contacto:</strong> Sergio Moraila
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Teléfono/WhatsApp:</strong> +52 33 2258 4777
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Email:</strong> sergio.moraila@ag-kem.com
-              </p>
-            </div>
-
-            {/* Noroeste */}
-            <div 
-              className="text-darkgrey p-3 rounded
-                         sm:p-4
-                         md:p-2
-                         lg:p-2" 
-              style={{backgroundColor: "#8dd57d"}}
-            >
-              <h3 
-                className="font-bold mb-2 text-center
-                           text-xs
-                           sm:text-sm sm:mb-3
-                           md:text-xs md:mb-1.5
-                           lg:text-sm lg:mb-2"
-              >
-                Noroeste
-              </h3>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Contacto:</strong> Mario Ballesteros
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Teléfono/WhatsApp:</strong> +52 64 420 2414
-              </p>
-              <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                <strong>Email:</strong> mariobamx@yahoo.com.mx
-              </p>
+    <section className="min-h-screen bg-white py-8 sm:py-10 md:py-12 lg:py-16 pb-24 sm:pb-28 md:pb-32">
+      <div className="container-custom">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          
+          {/* Left Image Section */}
+          <div className="w-full lg:w-1/4 flex items-start justify-center lg:justify-start">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-full lg:h-auto lg:aspect-square">
+              <Image
+                src="/images/Agkem_thanks.png"
+                alt="Contact Background"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 25vw"
+              />
             </div>
           </div>
 
-          {/* UBICACIÓN CORPORATIVA */}
-          <div 
-            className="text-darkgrey p-3 rounded lg:flex-1
-                       sm:p-4
-                       md:p-2
-                       lg:p-2" 
-            style={{backgroundColor: "#8dd57d"}}
-          >
-            <h3 
-              className="font-bold mb-2 text-center
-                         text-xs
-                         sm:text-sm sm:mb-3
-                         md:text-xs md:mb-1.5
-                         lg:text-sm lg:mb-2"
+          {/* Right Content Section */}
+          <div className="w-full lg:w-3/4 flex flex-col">
+            <h2 
+              className="font-bold mb-3 uppercase
+                         text-2xl
+                         sm:text-3xl sm:mb-4
+                         md:text-4xl md:mb-5
+                         lg:text-4xl lg:mb-6
+                         xl:text-5xl"
             >
-              UBICACIÓN CORPORATIVA
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-2 lg:gap-4">
-              <div>
-                <p className="text-[10px] mb-2 sm:text-xs sm:mb-3 md:text-[10px] md:mb-1.5 lg:text-xs lg:mb-2">
-                  <strong>Dirección:</strong> Calle Asunción #1653, Guadalajara, Jalisco, México
-                </p>
-                <p className="text-[10px] sm:text-xs md:text-[10px] lg:text-xs">
-                  <strong>Horario:</strong> Lunes a Viernes, 9:00–18:00 (hora local)
-                </p>
+              CONTACTO
+            </h2>
+            
+            <p 
+              className="mb-6 text-gray-700
+                         text-sm
+                         sm:text-base sm:mb-8
+                         md:text-lg
+                         leading-relaxed"
+            >
+              Para consultas comerciales o técnicas, contáctanos directamente.
+            </p>
+
+            {/* Altiplano y Sureste */}
+            <div 
+              className="text-darkgrey p-4 rounded-lg mb-4
+                         sm:p-5 sm:mb-5
+                         md:p-6 md:mb-6
+                         lg:mb-6" 
+              style={{backgroundColor: "#8dd57d"}}
+            >
+              <h3 
+                className="font-bold mb-3 text-center
+                           text-base
+                           sm:text-lg sm:mb-4
+                           md:text-xl md:mb-5
+                           lg:text-xl"
+              >
+                Altiplano y Sureste
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+                <div className="space-y-1 sm:space-y-2">
+                  <p className="text-xs sm:text-sm md:text-base">
+                    <strong>Contacto:</strong> Cicerón Maza
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base break-all">
+                    <strong>Teléfono/WhatsApp:</strong> +52 96 1233 4597
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base break-all">
+                    <strong>Email:</strong> ciceron.maza@ag-kem.com
+                  </p>
+                </div>
+                <div className="space-y-1 sm:space-y-2">
+                  <p className="text-xs sm:text-sm md:text-base">
+                    <strong>Contacto:</strong> Omar Mora
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base break-all">
+                    <strong>Teléfono/WhatsApp:</strong> +52 249 101 0701
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base break-all">
+                    <strong>Email:</strong> ome_agronomo46@hotmail.com
+                  </p>
+                </div>
               </div>
-              <div>
-                <iframe
-                  src="https://maps.google.com/maps?q=Calle+Asunción+1653,+Guadalajara,+Jalisco,+México&output=embed"
-                  width="100%"
-                  height="120"
-                  className="sm:h-32 md:h-28 lg:h-36"
-                  style={{border:0}}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+            </div>
+
+            {/* Bottom sections container */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+              
+              {/* Left Column */}
+              <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+                
+                {/* Dirección Comercial */}
+                <div 
+                  className="text-darkgrey p-4 rounded-lg
+                             sm:p-5
+                             md:p-6" 
+                  style={{backgroundColor: "#8dd57d"}}
+                >
+                  <h3 
+                    className="font-bold mb-3 text-center
+                               text-base
+                               sm:text-lg sm:mb-4
+                               md:text-xl"
+                  >
+                    Dirección Comercial
+                  </h3>
+                  <div className="space-y-1 sm:space-y-2">
+                    <p className="text-xs sm:text-sm md:text-base">
+                      <strong>Contacto:</strong> Sergio Moraila
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base break-all">
+                      <strong>Teléfono/WhatsApp:</strong> +52 33 2258 4777
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base break-all">
+                      <strong>Email:</strong> sergio.moraila@ag-kem.com
+                    </p>
+                  </div>
+                </div>
+
+                {/* Noroeste */}
+                <div 
+                  className="text-darkgrey p-4 rounded-lg
+                             sm:p-5
+                             md:p-6" 
+                  style={{backgroundColor: "#8dd57d"}}
+                >
+                  <h3 
+                    className="font-bold mb-3 text-center
+                               text-base
+                               sm:text-lg sm:mb-4
+                               md:text-xl"
+                  >
+                    Noroeste
+                  </h3>
+                  <div className="space-y-1 sm:space-y-2">
+                    <p className="text-xs sm:text-sm md:text-base">
+                      <strong>Contacto:</strong> Mario Ballesteros
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base break-all">
+                      <strong>Teléfono/WhatsApp:</strong> +52 64 420 2414
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base break-all">
+                      <strong>Email:</strong> mariobamx@yahoo.com.mx
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* UBICACIÓN CORPORATIVA */}
+              <div 
+                className="text-darkgrey p-4 rounded-lg
+                           sm:p-5
+                           md:p-6" 
+                style={{backgroundColor: "#8dd57d"}}
+              >
+                <h3 
+                  className="font-bold mb-3 text-center
+                             text-base
+                             sm:text-lg sm:mb-4
+                             md:text-xl"
+                >
+                  UBICACIÓN CORPORATIVA
+                </h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-xs sm:text-sm md:text-base">
+                      <strong>Dirección:</strong> Calle Asunción #1653, Guadalajara, Jalisco, México
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base">
+                      <strong>Horario:</strong> Lunes a Viernes, 9:00–18:00 (hora local)
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <iframe
+                      src="https://maps.google.com/maps?q=Calle+Asunción+1653,+Guadalajara,+Jalisco,+México&output=embed"
+                      className="w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-lg"
+                      style={{border:0}}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Ubicación AG KEM"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,72 +1,79 @@
-// const HeroSection = () => {
-//   return (
-//     <section className="bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: "url('/images/Agkem_homeBackground.png')", height: "100vh", filter: "brightness(1.2)" }}>
-//       <h1 className="font-gordita font-bold absolute top-8 left-4 z-10" style={{ fontSize: "58.7px", color: "#213d00" }}>
-//         Innovación para el campo
-//       </h1>
-//       <div className="flex items-center justify-center h-full">
-//         <p className="font-gordita" style={{ fontSize: "51.7px", color: "#213d00" }}>
-//           Siempre cercanos a nuestros clientes
-//         </p>
-//       </div>
-//     </section>
-//   );
-// };
+'use client';
 
-// export default HeroSection;
-
+import { useEffect, useState } from 'react';
 
 const HeroSection = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section 
-      className="bg-cover bg-center bg-no-repeat relative min-h-screen" 
+      className="relative w-full min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ 
         backgroundImage: "url('/images/Agkem_homeBackground.png')",
         backgroundPosition: "center 70%",
-        filter: "brightness(1.2)" 
+        backgroundSize: "cover"
       }}
     >
-      {/* Main heading - responsive text sizing */}
-      <h1 
-        className="font-gordita font-bold absolute z-10
-                   top-4 left-4 right-4
-                   text-2xl
-                   sm:text-3xl sm:top-6 sm:left-6
-                   md:text-4xl md:top-8 md:left-8
-                   lg:text-5xl lg:top-10 lg:left-10
-                   xl:text-6xl xl:top-12 xl:left-12
-                   2xl:left-16"
-        style={{ color: "#213d00" }}
-      >
-        Innovación para el campo
-      </h1>
+      {/* Brightness overlay - better than filter */}
+      <div className="absolute inset-0 bg-white/10" />
 
-      {/* Centered tagline - responsive text sizing and padding */}
-      <div 
-        className="flex items-center justify-center h-screen px-4
-                   sm:px-6
-                   md:px-8
-                   lg:px-12
-                   xl:px-16
-                   pb-16
-                   sm:pb-20
-                   md:pb-24
-                   lg:pb-28
-                   xl:pb-32"
-      >
-        <p 
-          className="font-gordita text-center
-                     text-xl
-                     sm:text-2xl
-                     md:text-3xl
-                     lg:text-4xl
-                     xl:text-5xl
-                     2xl:text-6xl
-                     leading-tight"
-          style={{ color: "#213d00" }}
+      {/* Content wrapper */}
+      <div className="relative z-10 flex flex-col h-full min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
+        {/* Main heading - responsive positioning */}
+        <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:px-16">
+          <h1 
+            className={`font-gordita font-bold max-w-full break-words
+                       text-2xl
+                       sm:text-3xl
+                       md:text-4xl
+                       lg:text-5xl
+                       xl:text-6xl
+                       2xl:text-7xl
+                       leading-tight
+                       transition-opacity duration-500 ${
+                         isMounted ? 'opacity-100' : 'opacity-0'
+                       }`}
+            style={{ color: "#213d00" }}
+          >
+            Innovación para el campo
+          </h1>
+        </div>
+
+        {/* Centered tagline - flexible centering */}
+        <div 
+          className="flex-1 flex items-center justify-center px-4
+                     sm:px-6
+                     md:px-8
+                     lg:px-12
+                     xl:px-16
+                     pb-16
+                     sm:pb-20
+                     md:pb-24
+                     lg:pb-28
+                     xl:pb-32"
         >
-          Siempre cercanos a nuestros clientes
-        </p>
+          <p 
+            className={`font-gordita text-center max-w-4xl
+                       text-xl
+                       sm:text-2xl
+                       md:text-3xl
+                       lg:text-4xl
+                       xl:text-5xl
+                       2xl:text-6xl
+                       leading-tight
+                       px-4
+                       transition-opacity duration-700 delay-300 ${
+                         isMounted ? 'opacity-100' : 'opacity-0'
+                       }`}
+            style={{ color: "#213d00" }}
+          >
+            Siempre cercanos a nuestros clientes
+          </p>
+        </div>
       </div>
     </section>
   );
