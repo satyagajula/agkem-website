@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Copyright from "@/components/layout/Copyright";
 import { NavigationProvider } from "@/context/NavigationContext";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export const metadata: Metadata = {
   title: "AG KEM - Innovación para el campo",
@@ -10,12 +17,6 @@ export const metadata: Metadata = {
   keywords: "agroquímicos, herbicidas, fungicidas, insecticidas, agricultura, México, AG KEM",
   authors: [{ name: "AG KEM" }],
   robots: "index, follow",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   icons: {
     icon: "/images/Agkem_logoNoBG.png",
   },
