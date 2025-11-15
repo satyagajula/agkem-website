@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   keywords: "agroquímicos, herbicidas, fungicidas, insecticidas, agricultura, México, AG KEM",
   authors: [{ name: "AG KEM" }],
   robots: "index, follow",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   icons: {
     icon: "/images/Agkem_logoNoBG.png",
   },
