@@ -37,28 +37,28 @@ const Header: React.FC = () => {
       }`}
     >
       <nav className="container-custom">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20 2xl:h-28">
           <Link 
             href="/" 
-            className="flex items-center space-x-2 sm:space-x-3 z-50 relative"
+            className="flex items-center space-x-2 sm:space-x-3 2xl:space-x-4 z-50 relative"
             data-testid="header-logo-link"
           >
             <Logo 
               width={36} 
               height={36} 
-              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10" 
+              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 2xl:w-16 2xl:h-16" 
             />
-            <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl tracking-wider">
+            <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl 2xl:text-4xl tracking-wider">
               AG KEM
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 z-10 relative">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 2xl:space-x-12 z-10 relative">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={`/${item.section === 'inicio' ? '' : item.section}`}
-                className={`text-sm lg:text-base font-medium transition-colors duration-200 hover:text-agkem-primary ${
+                className={`text-sm lg:text-base 2xl:text-2xl font-medium transition-colors duration-200 hover:text-agkem-primary ${
                   currentSection === item.section
                     ? 'text-agkem-primary'
                     : 'text-white'
