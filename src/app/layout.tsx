@@ -35,11 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className="bg-agkem-bg relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
+    <html lang="es" className="h-full">
+      <body className="bg-agkem-bg h-full overflow-x-hidden">
         <NavigationProvider>
           <Header />
-          <main className="pt-16 lg:pt-20">
+          <main className="h-screen pt-16 lg:pt-20">
             {children}
           </main>
           <Copyright />

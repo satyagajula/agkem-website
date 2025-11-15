@@ -19,22 +19,9 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [currentSection]);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
 
   const menuItems = [
     { label: 'Inicio', section: 'inicio' },
@@ -51,7 +38,6 @@ const Header: React.FC = () => {
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo and Company Name */}
           <Link 
             href="/" 
             className="flex items-center space-x-2 sm:space-x-3 z-50 relative"
@@ -67,7 +53,6 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8 z-10 relative">
             {menuItems.map((item) => (
               <Link
@@ -85,7 +70,6 @@ const Header: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-white hover:text-agkem-primary transition-colors z-50 relative p-2 -mr-2 touch-manipulation"
@@ -98,17 +82,14 @@ const Header: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
         <>
-          {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-black/50 z-40 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-hidden="true"
           />
           
-          {/* Mobile Menu */}
           <div 
             className="fixed top-16 left-0 right-0 bottom-0 bg-agkem-dark shadow-xl z-40 md:hidden overflow-y-auto"
             data-testid="mobile-menu"
