@@ -53,7 +53,7 @@ const ContactSection = () => {
                          md:p-3 md:mb-3
                          lg:p-1.5 lg:mb-1.5
                          xl:p-2 xl:mb-2" 
-              style={{backgroundColor: "#8dd57d"}}
+              style={{backgroundColor: "#d8fed0"}}
             >
               <h3 
                 className="font-bold mb-1 text-center
