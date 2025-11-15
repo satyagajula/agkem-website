@@ -76,25 +76,27 @@ const ProductsSection = () => {
                          xl:gap-2.5"
             >
               {products.map((product, index) => (
-                <div 
-                  key={index} 
-                  className="flex items-start gap-2 p-0 cursor-pointer
+                <div
+                  key={index}
+                  className="flex items-start gap-2 p-0
                              sm:gap-3
                              md:gap-3
                              lg:gap-2
                              xl:gap-3"
-                  onClick={() => router.push(`/productos/${index + 1}`)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      router.push(`/productos/${index + 1}`);
-                    }
-                  }}
                   data-testid={`product-card-${index + 1}`}
                 >
                   <div className="flex-shrink-0">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
+                    <div
+                      className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 xl:w-20 xl:h-20 cursor-pointer"
+                      onClick={() => router.push(`/productos/${index + 1}`)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          router.push(`/productos/${index + 1}`);
+                        }
+                      }}
+                    >
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -108,7 +110,7 @@ const ProductsSection = () => {
                     <h3 className="font-semibold text-agkem-dark mb-0.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
                       {product.name}
                     </h3>
-                    <p 
+                    <p
                       className="text-gray-600 leading-relaxed
                                  text-[9px]
                                  sm:text-[10px]
