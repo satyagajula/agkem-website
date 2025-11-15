@@ -32,12 +32,12 @@ const ProductsSection = () => {
           <div className="w-full lg:w-2/3 flex flex-col justify-center">
             
             <h2 
-              className="font-bold mb-1.5 uppercase
+              className="font-bold mb-1 uppercase
                          text-lg
-                         sm:text-xl sm:mb-2
-                         md:text-2xl md:mb-2
-                         lg:text-2xl lg:mb-2
-                         xl:text-3xl xl:mb-3"
+                         sm:text-xl sm:mb-1.5
+                         md:text-2xl md:mb-1.5
+                         lg:text-2xl lg:mb-1.5
+                         xl:text-3xl xl:mb-2"
             >
               PRODUCTOS
             </h2>
@@ -45,10 +45,10 @@ const ProductsSection = () => {
             <p 
               className="mb-2 text-gray-700
                          text-[10px]
-                         sm:text-xs sm:mb-3
-                         md:text-sm md:mb-4
-                         lg:text-sm lg:mb-3
-                         xl:text-base xl:mb-4
+                         sm:text-xs sm:mb-2
+                         md:text-sm md:mb-3
+                         lg:text-sm lg:mb-2
+                         xl:text-base xl:mb-3
                          leading-relaxed"
             >
               Nuestro portafolio abarca tres categorías principales para el manejo integral de plagas y enfermedades, con diversos modos de acción para favorecer la rotación y la eficacia.
@@ -69,20 +69,20 @@ const ProductsSection = () => {
             
             {/* Products List */}
             <div 
-              className="flex flex-col gap-2
-                         sm:gap-3
-                         md:gap-4
-                         lg:gap-2.5
-                         xl:gap-3"
+              className="flex flex-col gap-1.5
+                         sm:gap-2
+                         md:gap-3
+                         lg:gap-2
+                         xl:gap-2.5"
             >
               {products.map((product, index) => (
                 <div 
                   key={index} 
-                  className="flex items-start gap-2 p-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group
-                             sm:gap-3 sm:p-2
-                             md:gap-3 md:p-2
-                             lg:gap-2 lg:p-1.5
-                             xl:gap-3 xl:p-2"
+                  className="flex items-start gap-2 p-0 cursor-pointer
+                             sm:gap-3
+                             md:gap-3
+                             lg:gap-2
+                             xl:gap-3"
                   onClick={() => router.push(`/productos/${index + 1}`)}
                   role="button"
                   tabIndex={0}
@@ -99,7 +99,7 @@ const ProductsSection = () => {
                         src={product.image}
                         alt={product.name}
                         fill
-                        className="object-contain group-hover:scale-105 transition-transform duration-300"
+                        className="object-contain"
                         sizes="80px"
                       />
                     </div>
@@ -126,12 +126,12 @@ const ProductsSection = () => {
           
           {/* Right Image Section - Desktop only */}
           <div className="hidden lg:flex lg:w-1/3 items-center justify-center">
-            <div className="relative w-full max-w-xs xl:max-w-sm aspect-[4/3]">
+            <div className="relative w-full aspect-[3/4] max-h-full">
               <Image
                 src="/images/Agkem_productBG.png"
                 alt="Products Background"
                 fill
-                className="object-cover rounded-lg shadow-lg"
+                className="object-contain rounded-lg shadow-lg"
                 sizes="33vw"
               />
             </div>

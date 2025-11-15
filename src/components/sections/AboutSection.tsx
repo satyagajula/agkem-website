@@ -10,65 +10,67 @@ const AboutSection = () => {
                  lg:py-4" 
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
+      {/* Overlay for background visibility */}
+      <div className="absolute inset-0 bg-black/20" />
       
       <div 
-        className="w-full max-w-xs mx-4 p-2 rounded-lg text-black
-                   sm:max-w-md sm:mx-6 sm:p-3
-                   md:max-w-2xl md:mx-8 md:p-4
-                   lg:max-w-3xl lg:p-4
-                   xl:max-w-4xl xl:p-6
-                   my-auto" 
-        style={{ backgroundColor: '#f0ddab' }}
+        className="relative z-10 w-full max-w-xs mx-4 p-3 rounded-lg text-black
+                   sm:max-w-md sm:mx-6 sm:p-4
+                   md:max-w-2xl md:mx-8 md:p-5
+                   lg:max-w-3xl lg:p-5
+                   xl:max-w-4xl xl:p-7
+                   my-auto"
+        style={{ backgroundColor: 'rgba(245, 245, 245, 0.95)' }}
       >
         <h2 
           className="font-bold text-center mb-2
                      text-base
-                     sm:text-lg sm:mb-3
-                     md:text-xl md:mb-3
-                     lg:text-2xl lg:mb-3
-                     xl:text-3xl xl:mb-4"
+                     sm:text-lg sm:mb-2
+                     md:text-xl md:mb-2
+                     lg:text-2xl lg:mb-2
+                     xl:text-3xl xl:mb-3"
         >
           SOBRE NOSOTROS
         </h2>
         
         <p 
-          className="mb-2 text-white p-2 rounded
-                     text-[9px]
-                     sm:text-[10px] sm:mb-2 sm:p-2
-                     md:text-xs md:mb-3 md:p-3
-                     lg:text-sm lg:p-3 lg:mb-3
-                     xl:text-base xl:p-4 xl:mb-4
-                     leading-relaxed" 
-          style={{ backgroundColor: '#2C3E2C', opacity: 0.9 }}
+          className="mb-2 p-0 rounded
+                     text-[10px]
+                     sm:text-xs sm:mb-2
+                     md:text-sm md:mb-2
+                     lg:text-base lg:mb-2
+                     xl:text-lg xl:mb-3
+                     leading-relaxed
+                     text-gray-800" 
         >
           AG KEM nace como una empresa mexicana, basada en alianzas estratégicas con presencia
           internacional. Nos distingue una combinación de precios competitivos, calidad consistente y
           confiabilidad en el suministro; con un portafolio en crecimiento de productos y servicios.
         </p>
         
-        <div className="p-1 rounded-lg sm:p-1 md:p-2 lg:p-2">
+        <div className="p-0 rounded-lg">
           <ul 
-            className="list-none space-y-0.5
-                       text-[9px]
-                       sm:text-[10px] sm:space-y-1
-                       md:text-xs md:space-y-1
-                       lg:text-sm lg:space-y-1.5
-                       xl:text-base xl:space-y-2
+            className="list-none space-y-1
+                       text-[10px]
+                       sm:text-xs sm:space-y-1
+                       md:text-sm md:space-y-1
+                       lg:text-base lg:space-y-1
+                       xl:text-lg xl:space-y-1.5
                        [&>li]:relative 
-                       [&>li]:pl-4
-                       sm:[&>li]:pl-5
-                       md:[&>li]:pl-6
-                       lg:[&>li]:pl-6
+                       [&>li]:pl-5
+                       sm:[&>li]:pl-6
+                       md:[&>li]:pl-7
+                       lg:[&>li]:pl-8
                        [&>li]:before:content-['✓'] 
                        [&>li]:before:absolute 
                        [&>li]:before:left-0 
                        [&>li]:before:text-agkem-primary 
                        [&>li]:before:font-bold 
-                       [&>li]:before:text-xs
-                       sm:[&>li]:before:text-sm
-                       md:[&>li]:before:text-base
-                       lg:[&>li]:before:text-lg
-                       xl:[&>li]:before:text-xl"
+                       [&>li]:before:text-sm
+                       sm:[&>li]:before:text-base
+                       md:[&>li]:before:text-lg
+                       lg:[&>li]:before:text-xl
+                       xl:[&>li]:before:text-2xl"
           >
             <li>
               <strong>Innovadores</strong>: mejora continua en formulaciones y procesos.
