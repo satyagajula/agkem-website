@@ -14,17 +14,17 @@ const HeroSection = () => {
       className="relative w-full h-full bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ 
         backgroundImage: "url('/images/Agkem_homeBackground.png')",
-        backgroundPosition: "center 70%",
+        backgroundPosition: "center 60%",
         backgroundSize: "cover"
       }}
     >
       {/* Brightness overlay */}
-      <div className="absolute inset-0 bg-white/10" />
+      {/* <div className="absolute inset-0 bg-white/10" /> */}
 
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Main heading */}
-        <div className="pt-4 px-4 sm:pt-6 sm:px-6 md:pt-8 md:px-8 lg:pt-10 lg:px-10 xl:pt-12 xl:px-12 2xl:px-16">
+        <div className="pt-1 px-4 sm:pt-3 sm:px-6 md:pt-5 md:px-8 lg:pt-7 lg:px-10 xl:pt-9 xl:px-12 2xl:px-16">
           <h1 
             className={`font-gordita font-bold max-w-full break-words
                        text-2xl
@@ -44,17 +44,17 @@ const HeroSection = () => {
         </div>
 
         {/* Centered tagline */}
-        <div 
+        <div
           className="flex-1 flex items-center justify-center px-4
                      sm:px-6
                      md:px-8
                      lg:px-12
                      xl:px-16
-                     pb-32
-                     sm:pb-36
-                     md:pb-40
-                     lg:pb-44
-                     xl:pb-48"
+                     pb-28
+                     sm:pb-32
+                     md:pb-36
+                     lg:pb-40
+                     xl:pb-44"
         >
           <p 
             className={`font-gordita text-center max-w-4xl

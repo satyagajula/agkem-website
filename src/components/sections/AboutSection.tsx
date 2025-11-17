@@ -1,6 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 const AboutSection = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
     <section
       className="relative w-full h-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center overflow-hidden
@@ -13,38 +20,40 @@ const AboutSection = () => {
       {/* Overlay for background visibility */}
       {/* <div className="absolute inset-0 bg-black/20" /> */}
 
-      {/* Heading outside container */}
-      <h2
-        className="z-20 font-bold text-center text-agkem-dark
-                   text-base
-                   sm:text-lg
-                   md:text-xl
-                   lg:text-2xl
-                   xl:text-3xl
-                   2xl:text-4xl
-                   3xl:text-5xl
-                   4xl:text-6xl
-                   drop-shadow-lg"
-      >
-        SOBRE NOSOTROS
-      </h2>
-
       <div
-        className="relative z-10 w-full max-w-xs mx-4 p-2 rounded-2xl text-black
+        className={`relative z-10 w-full max-w-xs mx-4 p-2 rounded-2xl text-black
                    sm:max-w-md sm:mx-6 sm:p-3 sm:rounded-2xl
                    md:max-w-2xl md:mx-8 md:p-4 md:rounded-3xl
-                   lg:max-w-3xl lg:p-4 lg:rounded-3xl
-                   xl:max-w-4xl xl:p-6 xl:rounded-3xl
-                   2xl:max-w-5xl 2xl:p-8 2xl:rounded-3xl
-                   3xl:max-w-6xl 3xl:p-10 3xl:rounded-3xl
-                   4xl:max-w-7xl 4xl:p-12 4xl:rounded-3xl
-                   mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 2xl:mb-20 3xl:mb-24 4xl:mb-28
-                   shadow-xl"
+                   lg:max-w-[46.08rem] lg:p-4 lg:rounded-3xl
+                   xl:max-w-[77.76rem] xl:p-6 xl:rounded-3xl
+                   2xl:max-w-[115.2rem] 2xl:p-8 2xl:rounded-3xl
+                   3xl:max-w-[129.6rem] 3xl:p-10 3xl:rounded-3xl
+                   4xl:max-w-[144rem] 4xl:p-12 4xl:rounded-3xl
+                   mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-14 2xl:mb-18 3xl:mb-20 4xl:mb-24
+                   shadow-xl
+                   transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundColor: 'rgba(245, 245, 245, 0.7)' }}
       >
+
+        {/* Heading inside container */}
+        <h2
+          className={`z-20 font-bold text-left text-agkem-dark
+                     text-base
+                     sm:text-lg
+                     md:text-xl
+                     lg:text-2xl
+                     xl:text-3xl
+                     2xl:text-4xl
+                     3xl:text-5xl
+                     4xl:text-6xl
+                     drop-shadow-lg
+                     transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
+        >
+          SOBRE NOSOTROS
+        </h2>
         
         <p
-          className="mb-1 p-0 rounded
+          className={`mb-1 p-0 rounded
                      text-sm
                      sm:text-xs sm:mb-2
                      md:text-sm md:mb-2
@@ -54,7 +63,8 @@ const AboutSection = () => {
                      3xl:text-xl 3xl:mb-5
                      4xl:text-2xl 4xl:mb-6
                      leading-relaxed
-                     text-gray-800"
+                     text-gray-800
+                     transition-opacity duration-700 delay-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
         >
           AG KEM nace como una empresa mexicana, basada en alianzas estratégicas con presencia
           internacional. Nos distingue una combinación de precios competitivos, calidad consistente y
@@ -63,7 +73,7 @@ const AboutSection = () => {
         
         <div className="p-0 rounded-lg">
           <ul
-            className="list-none space-y-1
+            className={`list-none space-y-1
                        text-sm
                        sm:text-xs sm:space-y-1
                        md:text-sm md:space-y-1
@@ -84,6 +94,7 @@ const AboutSection = () => {
                        [&>li]:before:content-['➤']
                        [&>li]:before:absolute
                        [&>li]:before:left-0
+                       [&>li]:before:top-0.5
                        [&>li]:before:text-agkem-primary
                        [&>li]:before:font-bold
                        [&>li]:before:text-sm
@@ -93,7 +104,8 @@ const AboutSection = () => {
                        xl:[&>li]:before:text-2xl
                        2xl:[&>li]:before:text-3xl
                        3xl:[&>li]:before:text-4xl
-                       4xl:[&>li]:before:text-5xl"
+                       4xl:[&>li]:before:text-5xl
+                       transition-opacity duration-1000 delay-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
           >
             <li>
               <strong>Innovadores</strong>: mejora continua en formulaciones y procesos.
