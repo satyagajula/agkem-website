@@ -21,7 +21,7 @@ const AboutSection = () => {
       {/* <div className="absolute inset-0 bg-black/20" /> */}
 
       <div
-        className={`relative z-10 w-full max-w-xs mx-4 p-2 rounded-2xl text-black
+        className={`relative z-10 w-full h-full max-w-xs mx-4 p-2 rounded-2xl text-black
                    sm:max-w-md sm:mx-6 sm:p-3 sm:rounded-2xl
                    md:max-w-2xl md:mx-8 md:p-4 md:rounded-3xl
                    lg:max-w-[46.08rem] lg:p-4 lg:rounded-3xl
@@ -43,9 +43,9 @@ const AboutSection = () => {
                      md:text-xl
                      lg:text-2xl
                      xl:text-3xl
-                     2xl:text-4xl
-                     3xl:text-5xl
-                     4xl:text-6xl
+                     2xl:text-5xl
+                     3xl:text-6xl
+                     4xl:text-7xl
                      drop-shadow-lg
                      transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -59,9 +59,9 @@ const AboutSection = () => {
                      md:text-sm md:mb-2
                      lg:text-sm lg:mb-2
                      xl:text-base xl:mb-3
-                     2xl:text-lg 2xl:mb-4
-                     3xl:text-xl 3xl:mb-5
-                     4xl:text-2xl 4xl:mb-6
+                     2xl:text-2xl 2xl:mb-4
+                     3xl:text-2xl 3xl:mb-5
+                     4xl:text-4xl 4xl:mb-6
                      leading-relaxed
                      text-gray-800
                      transition-opacity duration-700 delay-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}
@@ -79,9 +79,9 @@ const AboutSection = () => {
                        md:text-sm md:space-y-1
                        lg:text-sm lg:space-y-1
                        xl:text-base xl:space-y-1.5
-                       2xl:text-lg 2xl:space-y-2
-                       3xl:text-xl 3xl:space-y-2.5
-                       4xl:text-2xl 4xl:space-y-3
+                       2xl:text-2xl 2xl:space-y-2
+                       3xl:text-2xl 3xl:space-y-2.5
+                       4xl:text-4xl 4xl:space-y-3
                        [&>li]:relative
                        [&>li]:pl-5
                        sm:[&>li]:pl-6

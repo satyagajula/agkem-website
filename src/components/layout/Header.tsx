@@ -38,17 +38,17 @@ const Header: React.FC = () => {
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link 
-            href="/" 
-            className="flex items-center space-x-2 sm:space-x-3 z-50 relative"
+          <Link
+            href="/"
+            className="flex items-center space-x-3 sm:space-x-4.5 z-50 relative"
             data-testid="header-logo-link"
           >
-            <Logo 
-              width={36} 
-              height={36} 
-              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10" 
+            <Logo
+              width={54}
+              height={54}
+              className="w-12 h-12 sm:w-13.5 sm:h-13.5 md:w-15 md:h-15"
             />
-            <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl tracking-wider">
+            <span className="text-white font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wider">
               AG KEM
             </span>
           </Link>
