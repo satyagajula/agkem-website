@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+        '4xl': '1920px',
+      },
       colors: {
         'agkem': {
           dark: '#2C3E2C',      // Dark green (header/footer)
@@ -18,8 +23,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        gordita: ['Gordita', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        gordita: ['Gordita', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -40,17 +45,8 @@ const config: Config = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
-      screens: {
-        'xs': '475px',
-        '2xl': '1536px',
-        '3xl': '1920px',
-        '4xl': '2560px',
-      },
     },
   },
   plugins: [],
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
 };
 export default config;

@@ -16,7 +16,9 @@ const AboutSection = () => {
                  md:py-8
                  lg:py-10
                  xl:py-12
-                 2xl:py-16"
+                 2xl:py-16
+                 mac:py-18
+                 mac-xl:py-20"
       style={{ backgroundImage: "url('/images/Agkem_aboutUs.png')" }}
     >
       {/* Overlay for background visibility */}
@@ -29,6 +31,8 @@ const AboutSection = () => {
                    lg:max-w-3xl lg:p-4 lg:rounded-3xl
                    xl:max-w-5xl xl:p-6 xl:rounded-3xl
                    2xl:max-w-6xl 2xl:p-8 2xl:rounded-3xl
+                   mac:max-w-7xl mac:p-9 mac:rounded-3xl
+                   mac-xl:max-w-[120rem] mac-xl:p-10 mac-xl:rounded-3xl
                    3xl:max-w-7xl 3xl:p-10 3xl:rounded-3xl
                    4xl:max-w-[100rem] 4xl:p-12 4xl:rounded-3xl
                    shadow-xl
@@ -45,6 +49,8 @@ const AboutSection = () => {
                      lg:text-2xl
                      xl:text-3xl
                      2xl:text-4xl 2xl:mb-6
+                     mac:text-5xl mac:mb-7
+                     mac-xl:text-6xl mac-xl:mb-8
                      3xl:text-5xl 3xl:mb-8
                      4xl:text-6xl 4xl:mb-10
                      drop-shadow-lg
@@ -52,7 +58,7 @@ const AboutSection = () => {
         >
           SOBRE NOSOTROS
         </h2>
-        
+
         <p
           className={`mb-1 p-0 rounded
                      text-sm
@@ -61,6 +67,8 @@ const AboutSection = () => {
                      lg:text-sm lg:mb-2
                      xl:text-lg xl:mb-3
                      2xl:text-xl 2xl:mb-8
+                     mac:text-2xl mac:mb-9
+                     mac-xl:text-3xl mac-xl:mb-10
                      3xl:text-2xl 3xl:mb-10
                      4xl:text-4xl 4xl:mb-12
                      leading-relaxed
@@ -92,6 +100,7 @@ const AboutSection = () => {
                        2xl:[&>li]:pl-12
                        3xl:[&>li]:pl-14
                        4xl:[&>li]:pl-16
+                       mac-xl:[&>li]:pl-12
                        [&>li]:py-2
                        2xl:[&>li]:py-4
                        3xl:[&>li]:py-5
@@ -99,7 +108,8 @@ const AboutSection = () => {
                        [&>li]:before:content-['➤']
                        [&>li]:before:absolute
                        [&>li]:before:left-0
-                       [&>li]:before:top-0.2
+                       [&>li]:before:top-0.5
+                       mac-xl:[&>li]:before:top-0.5
                        [&>li]:before:text-agkem-primary
                        [&>li]:before:font-bold
                        [&>li]:before:text-sm

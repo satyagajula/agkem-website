@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Copyright from "@/components/layout/Copyright";
 import { NavigationProvider } from "@/context/NavigationContext";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -35,11 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="h-full">
-      <body className="bg-agkem-bg h-full overflow-x-hidden">
+    <html lang="es" >
+      <body className="min-h-screen flex flex-col overflow-x-hidden">
         <NavigationProvider>
           <Header />
-          <main className="h-screen pt-16 lg:pt-20">
+          <main className="flex-1 pt-16 lg:pt-20">
             {children}
           </main>
           <Copyright />

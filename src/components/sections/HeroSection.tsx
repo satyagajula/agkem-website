@@ -10,8 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section 
-      className="relative w-full h-full bg-cover bg-center bg-no-repeat flex flex-col"
+    <section className="relative w-full h-[calc(100vh-80px)] overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col"
       style={{ 
         backgroundImage: "url('/images/Agkem_homeBackground.png')",
         backgroundPosition: "center 60%",
@@ -50,11 +49,7 @@ const HeroSection = () => {
                      md:px-8
                      lg:px-12
                      xl:px-16
-                     pb-28
-                     sm:pb-32
-                     md:pb-36
-                     lg:pb-40
-                     xl:pb-44"
+                     pb-10 sm:pb-12 md:pb-14 lg:pb-16"
         >
           <p 
             className={`font-gordita text-center max-w-4xl
