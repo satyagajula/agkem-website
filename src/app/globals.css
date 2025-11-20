@@ -154,3 +154,26 @@ main {
 .site-footer {
   flex-shrink: 0;
 }
+
+/* SAFARI / IOS FLEX HEIGHT FIX */
+@supports (-webkit-touch-callout: none) {
+  .ios-flex-fix {
+    min-height: -webkit-fill-available;
+  }
+}
+
+:root {
+  --safe-vh: 100vh;
+}
+
+@supports (height: 100lvh) {
+  :root {
+    --safe-vh: 100lvh;
+  }
+}
+
+.ios-flex-fix {
+  min-height: 0;
+  height: auto;
+  flex: 1 1 auto;
+}
