@@ -68,7 +68,7 @@ const HeroSection = () => {
                        }`}
             style={{ color: "#213d00" }}
           >
-            Siempre cercanos a nuestros cl  jientes
+            Siempre cercanos a nuestros clientes
           </p>
         </div>
       </div>
