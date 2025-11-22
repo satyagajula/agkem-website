@@ -47,8 +47,8 @@ const HeroSection = () => {
           className="flex-1 flex items-center justify-center px-4
                      sm:px-6
                      md:px-8
-                     lg:px-12
-                     xl:px-16
+                     lg:px-10
+                     xl:px-12
                      pb-10 sm:pb-12 md:pb-14 lg:pb-24
                      "
         >
