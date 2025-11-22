@@ -44,15 +44,14 @@ const HeroSection = () => {
 
         {/* Centered tagline */}
         <div
-  className="flex-1 flex items-center justify-center px-4
-             sm:px-6
-             md:px-8
-             lg:px-12
-             xl:px-16
-             pb-4 sm:pb-6 md:pb-8 lg:pb-10
-             -mt-10 sm:-mt-14 md:-mt-16 lg:-mt-20"
->
-
+          className="flex-1 flex items-center justify-center px-4
+                     sm:px-6
+                     md:px-8
+                     lg:px-12
+                     xl:px-16
+                     pb-10 sm:pb-12 md:pb-14 lg:pb-24
+                     "
+        >
           <p 
             className={`font-gordita text-center max-w-4xl
                        text-xl2d  
