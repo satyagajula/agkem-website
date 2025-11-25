@@ -243,13 +243,21 @@ const ContactSection = () => {
               </div>
 
               <div className={`flex-1 min-h-[120px] flex items-center justify-center ${inClass('delay-600')}`}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59816.82386190931!2d-103.401253!3d20.659698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad0b21a43f35%3A0xdda1fcfaf71b3c2e!2sGuadalajara%2C%20Jalisco!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                  width="100%"
-                  height="100%"
-                  className="rounded-lg border border-gray-300 shadow-sm"
-                  loading="lazy"
-                ></iframe>
+                <a
+                  href="https://www.google.com/maps/place/C.+Asuncion+1653,+Providencia,+44630+Guadalajara,+Jal.,+Mexico/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119497.15456357967!2d-103.45539390781252!3d20.703964999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae369ce39701%3A0xf4ad385d67b631b1!2sC.%20Asuncion%201653%2C%20Providencia%2C%2044630%20Guadalajara%2C%20Jal.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1700000000001!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ pointerEvents: 'none' }}
+                    className="rounded-lg border border-gray-300 shadow-sm"
+                    loading="lazy"
+                  ></iframe>
+                </a>
               </div>
             </div>
           </div>

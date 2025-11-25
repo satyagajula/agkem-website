@@ -72,7 +72,7 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
         </Link>
 
         {/* Product detail card */}
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex-1 lg:flex-none">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex-1 lg:flex-1">
           <div className="flex flex-col lg:flex-row h-full">
             
             {/* Image section */}
