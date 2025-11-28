@@ -364,59 +364,87 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
   }
 
   return (
-    // The outer div receives the background image and covers the visible page area.
-    <div
-      className="min-h-[calc(100vh)] bg-no-repeat bg-center bg-cover"
-      style={{
-        // This sets the background to cover the whole page area for this route.
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-      }}
-    >
-      {/* Make this area scrollable if needed and keep padding so header & copyright are outside this layout */}
-      <div className="h-full overflow-y-auto bg-transparent py-6 sm:py-8 lg:py-10">
-        <div className="container-custom h-full flex flex-col lg:justify-center">
-          {/* white card (product content) — tune widths/paddings to match your design */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden flex-1 lg:flex-1">
-            <div className="flex flex-col lg:flex-row h-full">
-              <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10 bg-transparent flex items-center justify-center">
-                <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
-                  {/* keep using next/image for the product image (keeps good perf) */}
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
+  <div
+    className="min-h-[calc(100vh)] bg-no-repeat bg-center bg-cover"
+    style={{
+      backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
+    }}
+  >
+    {/* scrollable content area */}
+    <div className="h-full overflow-y-auto bg-transparent py-6 sm:py-8 lg:py-10">
+      {/* container: link + card live inside this so background alignment is preserved */}
+      <div className="container-custom h-full flex flex-col lg:justify-center">
+        {/* <-- BACK LINK placed inside container so it doesn't affect the background layout */}
+        {/* <div className="mb-6">
+          <Link
+            href="/productos"
+            className="inline-flex items-center gap-2 font-semibold text-agkem-dark text-lg
+                       bg-white/90 px-4 py-2 rounded-md shadow-sm backdrop-blur-sm
+                       hover:shadow-md transition z-20"
+          >
+            <ArrowLeft size={20} />
+            Volver a Productos
+          </Link>
+        </div> */}
+
+        {/* product card; ensure it's stacked below the link visually */}
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden flex-1 relative z-10">
+        {/* Back Link Inside Card */}
+          <div className="w-full p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10">
+            <Link
+              href="/productos"
+              className="inline-flex items-center gap-2 font-semibold text-lg transition"
+              style={{ color: "#8BC34A" }}
+            >
+              <ArrowLeft size={20} />
+              Volver a Productos
+            </Link>
+          </div>
+
+          <div className="flex flex-col lg:flex-row h-full">
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10 bg-transparent flex items-center justify-center">
+              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="object-contain w-full h-full"
+                />
               </div>
+            </div>
 
-              <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-6 xl:p-8 flex flex-col justify-center">
-                <h1 className="font-bold mb-3 text-agkem-dark text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
-                  {product.name}
-                </h1>
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-6 xl:p-8 flex flex-col justify-center">
+              <h1 className="font-bold mb-3 text-agkem-dark text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
+                {product.name}
+              </h1>
 
-                <p className="text-gray-700 mb-3 leading-relaxed text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
-                  {product.description}
-                </p>
+              <p className="text-gray-700 mb-3 leading-relaxed text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
+                {product.description}
+              </p>
 
-                <p className="text-gray-600 mb-4 leading-relaxed text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
-                  {product.details}
-                </p>
+              <p className="text-gray-600 mb-4 leading-relaxed text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
+                {product.details}
+              </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 lg:gap-2 xl:gap-3">
-                  <Link
-                    href="/productos"
-                    className="inline-flex items-center justify-center gap-2 bg-agkem-primary text-white px-4 py-2 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-lg hover:bg-agkem-accent transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation min-h-[44px] font-semibold text-sm lg:text-sm xl:text-base"
-                  >
-                    Values
-                  </Link>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-2 xl:gap-3">
+                <Link
+                  href="/productos"
+                  className="inline-flex items-center justify-center gap-2 bg-agkem-primary text-white px-4 py-2 rounded-lg
+                             hover:bg-agkem-accent transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[44px] font-semibold text-sm"
+                >
+                  Values
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </div> {/* end scroll area */}
+        {/* end product card */}
+      </div>
+      {/* end container */}
     </div>
-  );
+    {/* end scrollable content */}
+  </div>
+);
+
 };
 
 export default ProductDetail;
