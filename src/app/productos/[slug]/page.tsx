@@ -363,6 +363,60 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
     );
   }
 
+  const fungicidasList = [
+  { title: "LANDER 250", subtitle: "AZOXYSTROBIN 250" },
+  { title: "METALAXIL 240 CE", subtitle: "METALAXIL 240 CE" },
+  { title: "SLASH 250", subtitle: "PIRACLOSTROBIN 250" },
+  { title: "SANARE", subtitle: "TIABENDAZOL 600" },
+];
+
+const insecticidasList = [
+  { title: "ABAMECTINA 1.8 CE", subtitle: "ABAMECTINA 1.8 CE" },
+  { title: "APRID 200", subtitle: "ACETAMIPRID 200" },
+  { title: "ALFA 1.8", subtitle: "BENZOATO DE EMAMECTINA 1.8" },
+  { title: "KOROS", subtitle: "SPINOSAD 480" },
+];
+
+const herbicidasList = [
+  { title: "GLORY 90", subtitle: "ATRAZINA 90" },
+  { title: "KAIMA 41", subtitle: "GLIFOSATO 41%" },
+  { title: "OVER 18", subtitle: "GLUFOSINATO DE AMONIO 200" },
+  { title: "SHAO 200", subtitle: "PARAQUAT 200" },
+];
+
+const sideImageMap: Record<string, string> = {
+  fungicidas: "/images/fungicidas_products.png",
+  insecticidas: "/images/insecticidas_products.png",
+  herbicidas: "/images/herbicidas_products.png",
+};
+
+
+const getProductListForSlug = (slug: string) => {
+  if (slug === "fungicidas")
+    return {
+      list: fungicidasList,
+      bullet: "/images/Agkem_fungicidasBullet.png",
+      titleColor: "#2C3E2C",
+    };
+
+  if (slug === "insecticidas")
+    return {
+      list: insecticidasList,
+      bullet: "/images/Agkem_insecticidasBullet.png",
+      titleColor: "#555",
+    };
+
+  if (slug === "herbicidas")
+    return {
+      list: herbicidasList,
+      bullet: "/images/Agkem_herbicidasBullet.png",
+      titleColor: "#2C5E19",
+    };
+
+  return { list: [], bullet: "", titleColor: "#000" };
+};
+
+
   return (
   <div
     className="min-h-[calc(100vh)] bg-no-repeat bg-center bg-cover"
@@ -373,9 +427,9 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
     {/* scrollable content area */}
     <div className="h-full overflow-y-auto bg-transparent py-6 sm:py-8 lg:py-10">
       {/* container: link + card live inside this so background alignment is preserved */}
-      <div className="container-custom h-full flex flex-col lg:justify-center">
+      <div className="container-custom relative h-full flex flex-col lg:justify-center">
         {/* <-- BACK LINK placed inside container so it doesn't affect the background layout */}
-        {/* <div className="mb-6">
+        <div className="mb-6">
           <Link
             href="/productos"
             className="inline-flex items-center gap-2 font-semibold text-agkem-dark text-lg
@@ -385,37 +439,65 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
             <ArrowLeft size={20} />
             Volver a Productos
           </Link>
-        </div> */}
+        </div>
 
         {/* product card; ensure it's stacked below the link visually */}
         <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden flex-1 relative z-10">
-        {/* Back Link Inside Card */}
-          <div className="w-full p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10">
-            <Link
-              href="/productos"
-              className="inline-flex items-center gap-2 font-semibold text-lg transition"
-              style={{ color: "#8BC34A" }}
-            >
-              <ArrowLeft size={20} />
-              Volver a Productos
-            </Link>
-          </div>
-
           <div className="flex flex-col lg:flex-row h-full">
             <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-8 xl:p-10 bg-transparent flex items-center justify-center">
-              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
+              {/* innerGroup is centered in the left half; content inside is stacked and list items remain left-aligned */}
+              <div className="w-full max-w-md flex flex-col items-start justify-center">
+                {/* optional product image above the list (centered) */}
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="object-contain w-full h-full"
+                  className="object-contain w-full max-w-xs mb-6 mx-auto"
                 />
+
+                {/* the list itself — fixed max width, centered as a group because parent is centered */}
+                {(() => {
+                  const { list, bullet, titleColor } = getProductListForSlug(slug);
+                  return (
+                    <ul className="max-w-md mx-auto space-y-6">
+                      {list.map((item) => (
+                        <li key={item.title} className="flex items-start gap-3">
+                          {/* Bullet icon image */}
+                          <img
+                            src={bullet}
+                            alt="bullet"
+                            className="w-8 h-8 mt-1 object-contain"
+                          />
+
+                          <div>
+                            <div
+                              className="font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-tight"
+                              style={{ color: titleColor }}
+                            >
+                              {item.title}
+                            </div>
+
+                            <div className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
+                              {item.subtitle}
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                })()}
               </div>
             </div>
-
-            <div className="w-full lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-6 xl:p-8 flex flex-col justify-center">
+            <div className=" lg:w-1/2 p-4 sm:p-6 md:p-8 lg:p-6 xl:p-8 flex flex-col justify-start">
               <h1 className="font-bold mb-3 text-agkem-dark text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
                 {product.name}
               </h1>
+              {/* <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md">
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    className="object-contain "
+                  />
+              </div> */}
 
               <p className="text-gray-700 mb-3 leading-relaxed text-xs sm:text-sm md:text-base lg:text-sm xl:text-base">
                 {product.description}
@@ -436,6 +518,39 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
               </div>
             </div>
           </div>
+          {/* corner tractor - anchored to the container's bottom-left */}
+          <img
+            src="/images/Agkem_cornerTruck.png"
+            alt="tractor"
+            className="
+              pointer-events-none
+              absolute
+              bottom-1
+              left-2
+              sm:w-10 sm:h-10
+              md:w-16 md:h-16
+              hidden md:block
+            "
+          />
+          {/* right-side product group (anchored to card's bottom-right) */}
+          <img
+            src={sideImageMap[slug] ?? ""}
+            alt={`${product.name} group`}
+            className="
+              pointer-events-none
+              absolute
+              -right-3
+              -bottom-3
+              w-36
+              h-auto
+              sm:w-44
+              md:w-56
+              lg:w-64
+              z-20
+              hidden md:block
+              drop-shadow-lg
+            "
+          />
         </div>
         {/* end product card */}
       </div>
