@@ -162,7 +162,7 @@ const ProductDetail = ({ params }: ProductDetailProps) => {
             <div
               className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden flex-1 relative z-10
                 p-5 sm:p-6 md:p-7 lg:p-8
-                min-h-[80vh]
+                min-h-[70vh]
                 w-full
               "
             >
