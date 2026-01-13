@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Linkedin, MessageCircle } from 'lucide-react';
+import { MapPin, Linkedin } from 'lucide-react';
 
 const Copyright = () => {
   return (
@@ -19,16 +19,7 @@ const Copyright = () => {
             </p>
           </div>
 
-          <div className="flex space-x-2 sm:space-x-3 flex-shrink-0">
-            <a
-              href="https://wa.me/523322584777"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-agkem-primary/20 hover:bg-agkem-primary/40 p-1.5 sm:p-2 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation min-w-[32px] min-h-[32px] flex items-center justify-center"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-            </a>
-
+          <div className="flex space-x-2 sm:space-x-3 flex-shrink-0 mr-16 sm:mr-20">
             <a
               href="#"
               target="_blank"

@@ -32,24 +32,24 @@ const ProductDetailClient: React.FC<Props> = ({ slug, products, backgroundImage 
 
   // product lists and bullet + side images
   const fungicidasList = [
-    { title: "LANDER 250", subtitle: "AZOXYSTROBIN 250" },
-    { title: "METALAXIL 240 CE", subtitle: "METALAXIL 240 CE" },
-    { title: "SLASH 250", subtitle: "PIRACLOSTROBIN 250" },
-    { title: "SANARE", subtitle: "TIABENDAZOL 600" },
+    { title: "LANDER 250", subtitle: "AZOXYSTROBIN 250", slug: "lander250" },
+    { title: "METALAXIL 240 CE", subtitle: "METALAXIL 240 CE", slug: "metalaxil240ce" },
+    { title: "SLASH 250", subtitle: "PIRACLOSTROBIN 250", slug: "slash250" },
+    { title: "SANARE", subtitle: "TIABENDAZOL 600", slug: "sanare" },
   ];
 
   const insecticidasList = [
-    { title: "ABAMECTINA 1.8 CE", subtitle: "ABAMECTINA 1.8 CE" },
-    { title: "APRID 200", subtitle: "ACETAMIPRID 200" },
-    { title: "ALFA 1.8", subtitle: "BENZOATO DE EMAMECTINA 1.8" },
-    { title: "KOROS", subtitle: "SPINOSAD 480" },
+    { title: "ABAMECTINA 1.8 CE", subtitle: "ABAMECTINA 1.8 CE", slug: "abamectina18ce" },
+    { title: "APRID 200", subtitle: "ACETAMIPRID 200", slug: "aprid200" },
+    { title: "ALFA 1.8", subtitle: "BENZOATO DE EMAMECTINA 1.8", slug: "alfa18" },
+    { title: "KOROS", subtitle: "SPINOSAD 480", slug: "koros" },
   ];
 
   const herbicidasList = [
-    { title: "GLORY 90", subtitle: "ATRAZINA 90" },
-    { title: "KAIMA 41", subtitle: "GLIFOSATO 41%" },
-    { title: "OVER 18", subtitle: "GLUFOSINATO DE AMONIO 200" },
-    { title: "SHAO 200", subtitle: "PARAQUAT 200" },
+    { title: "GLORY 90", subtitle: "ATRAZINA 90", slug: "glory90" },
+    { title: "KAIMA 41", subtitle: "GLIFOSATO 41%", slug: "kaima41" },
+    { title: "OVER 18", subtitle: "GLUFOSINATO DE AMONIO 200", slug: "over18" },
+    { title: "SHAO 200", subtitle: "PARAQUAT 200", slug: "shao200" },
   ];
 
   const sideImageMap: Record<string, string> = {
@@ -145,21 +145,26 @@ const ProductDetailClient: React.FC<Props> = ({ slug, products, backgroundImage 
                       {list.map((item, idx) => (
                         <li
                           key={item.title}
-                          className="flex items-start gap-3 transition-opacity duration-500"
+                          className="transition-opacity duration-500"
                           style={{ transitionDelay: `${300 + idx * 160}ms`, opacity: mounted ? 1 : 0 }}
                         >
-                          {/* bullet: small image (kept as <img> — it's tiny; if you want convert to <Image/> ) */}
-                          <img src={bullet} alt="bullet" className="w-8 h-8 mt-1 object-contain" />
+                          <Link
+                            href={`/productos/${slug}/${item.slug}`}
+                            className="flex items-start gap-3 hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                          >
+                            {/* bullet: small image (kept as <img> — it's tiny; if you want convert to <Image/> ) */}
+                            <img src={bullet} alt="bullet" className="w-8 h-8 mt-1 object-contain" />
 
-                          <div>
-                            <div className="font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-tight" style={{ color: titleColor }}>
-                              {item.title}
-                            </div>
+                            <div>
+                              <div className="font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-tight group-hover:underline" style={{ color: titleColor }}>
+                                {item.title}
+                              </div>
 
-                            <div className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
-                              {item.subtitle}
+                              <div className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
+                                {item.subtitle}
+                              </div>
                             </div>
-                          </div>
+                          </Link>
                         </li>
                       ))}
                     </ul>

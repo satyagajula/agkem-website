@@ -10,22 +10,27 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[calc(100vh-80px)] overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col"
-      style={{ 
-        backgroundImage: "url('/images/Agkem_homeBackground.png')",
-        backgroundPosition: "center 60%",
-        backgroundSize: "cover"
-      }}
-    >
-      {/* Brightness overlay */}
-      {/* <div className="absolute inset-0 bg-white/10" /> */}
+    <section className="relative w-full h-[calc(100vh-80px)] overflow-hidden flex flex-col">
+      {/* Single looping video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/videos/home_video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Optional overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/10 z-[2]" />
 
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Main heading */}
         <div className="pt-1 px-4 sm:pt-3 sm:px-6 md:pt-5 md:px-8 lg:pt-7 lg:px-10 xl:pt-9 xl:px-12 2xl:px-16">
-          <h1 
-            className={`font-gordita font-bold max-w-full break-words
+          <h1
+            className={`font-gordita font-bold max-w-full break-words text-white
                        text-2xl
                        sm:text-3xl
                        md:text-4xl
@@ -36,7 +41,6 @@ const HeroSection = () => {
                        transition-opacity duration-500 ${
                          isMounted ? 'opacity-100' : 'opacity-0'
                        }`}
-            style={{ color: "#213d00" }}
           >
             Innovación para el campo
           </h1>
@@ -52,9 +56,9 @@ const HeroSection = () => {
                      pb-10 sm:pb-12 md:pb-14 lg:pb-24
                      "
         >
-          <p 
-            className={`font-gordita text-center max-w-4xl
-                       text-xl2d  
+          <p
+            className={`font-gordita text-center max-w-4xl text-white
+                       text-xl2d
                        sm:text-2xl
                        md:text-3xl
                        lg:text-4xl
@@ -65,7 +69,6 @@ const HeroSection = () => {
                        transition-opacity duration-700 delay-300 ${
                          isMounted ? 'opacity-100' : 'opacity-0'
                        }`}
-            style={{ color: "#213d00" }}
           >
             Siempre cercanos a nuestros clientes
           </p>

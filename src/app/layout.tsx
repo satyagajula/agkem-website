@@ -2,9 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Copyright from "@/components/layout/Copyright";
+import WhatsAppChat from "@/components/ui/WhatsAppChat";
 import { NavigationProvider } from "@/context/NavigationContext";
-import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -37,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" >
+    <html lang="es" className="scroll-smooth">
       <body className="min-h-screen flex flex-col overflow-x-hidden">
         <NavigationProvider>
           <Header />
@@ -45,6 +44,7 @@ export default function RootLayout({
             {children}
           </main>
           <Copyright />
+          <WhatsAppChat />
         </NavigationProvider>
       </body>
     </html>
