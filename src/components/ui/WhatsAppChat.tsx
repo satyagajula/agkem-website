@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 interface ChatMessage {
@@ -10,9 +10,26 @@ interface ChatMessage {
   timestamp: Date;
 }
 
+interface Country {
+  code: string;
+  name: string;
+  flag: string;
+  dialCode: string;
+}
+
 const WhatsAppChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const [showContactForm, setShowContactForm] = useState(true);
+  const [userName, setUserName] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState<Country>({
+    code: 'IN',
+    name: 'India',
+    flag: '🇮🇳',
+    dialCode: '+91'
+  });
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       text: '¡Hola! 👋 Bienvenido a AG KEM. ¿En qué podemos ayudarte hoy?',
@@ -20,8 +37,32 @@ const WhatsAppChat: React.FC = () => {
       timestamp: new Date(),
     },
   ]);
-  const [showQuickReplies, setShowQuickReplies] = useState(true);
+  const [showQuickReplies, setShowQuickReplies] = useState(false);
   const chatBodyRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const countries: Country[] = [
+    { code: 'AR', name: 'Argentina', flag: '🇦🇷', dialCode: '+54' },
+    { code: 'BR', name: 'Brasil', flag: '🇧🇷', dialCode: '+55' },
+    { code: 'CL', name: 'Chile', flag: '🇨🇱', dialCode: '+56' },
+    { code: 'CO', name: 'Colombia', flag: '🇨🇴', dialCode: '+57' },
+    { code: 'CR', name: 'Costa Rica', flag: '🇨🇷', dialCode: '+506' },
+    { code: 'EC', name: 'Ecuador', flag: '🇪🇨', dialCode: '+593' },
+    { code: 'SV', name: 'El Salvador', flag: '🇸🇻', dialCode: '+503' },
+    { code: 'ES', name: 'España', flag: '🇪🇸', dialCode: '+34' },
+    { code: 'US', name: 'Estados Unidos', flag: '🇺🇸', dialCode: '+1' },
+    { code: 'GT', name: 'Guatemala', flag: '🇬🇹', dialCode: '+502' },
+    { code: 'HN', name: 'Honduras', flag: '🇭🇳', dialCode: '+504' },
+    { code: 'IN', name: 'India', flag: '🇮🇳', dialCode: '+91' },
+    { code: 'MX', name: 'México', flag: '🇲🇽', dialCode: '+52' },
+    { code: 'NI', name: 'Nicaragua', flag: '🇳🇮', dialCode: '+505' },
+    { code: 'PA', name: 'Panamá', flag: '🇵🇦', dialCode: '+507' },
+    { code: 'PY', name: 'Paraguay', flag: '🇵🇾', dialCode: '+595' },
+    { code: 'PE', name: 'Perú', flag: '🇵🇪', dialCode: '+51' },
+    { code: 'DO', name: 'República Dominicana', flag: '🇩🇴', dialCode: '+1-809' },
+    { code: 'UY', name: 'Uruguay', flag: '🇺🇾', dialCode: '+598' },
+    { code: 'VE', name: 'Venezuela', flag: '🇻🇪', dialCode: '+58' },
+  ];
 
   const predefinedMessages = [
     '¡Hola! Me gustaría conocer más sobre sus productos',
@@ -37,32 +78,81 @@ const WhatsAppChat: React.FC = () => {
     }
   }, [chatMessages]);
 
-  const handleSendMessage = (text: string) => {
-    if (!text.trim()) return;
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowCountryDropdown(false);
+      }
+    };
 
-    // Add user message
-    const userMessage: ChatMessage = {
-      text: text.trim(),
-      sender: 'user',
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleContactFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userName.trim() || !phoneNumber.trim()) return;
+
+    // Hide contact form and show quick replies
+    setShowContactForm(false);
+    setShowQuickReplies(true);
+
+    // Add a welcome message with user's name
+    const welcomeMessage: ChatMessage = {
+      text: `¡Hola ${userName}! 👋 Gracias por contactarnos. Por favor, selecciona una de las opciones a continuación o escribe tu consulta.`,
+      sender: 'bot',
       timestamp: new Date(),
     };
-    setChatMessages((prev) => [...prev, userMessage]);
-    setMessage('');
-    setShowQuickReplies(false);
+    setChatMessages((prev) => [...prev, welcomeMessage]);
+  };
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botMessage: ChatMessage = {
-        text: 'Gracias por tu mensaje. Un representante de AG KEM se pondrá en contacto contigo pronto. También puedes contactarnos directamente por WhatsApp o teléfono.',
-        sender: 'bot',
-        timestamp: new Date(),
-      };
-      setChatMessages((prev) => [...prev, botMessage]);
-    }, 1000);
+  const handleQuickReplyClick = (msg: string) => {
+    // Format the message with user details
+    const fullMessage = `Hola, soy ${userName}.\nMi número es: ${selectedCountry.dialCode} ${phoneNumber}\n\n${msg}`;
+
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(fullMessage);
+
+    // Open WhatsApp with the customer service number
+    const whatsappUrl = `https://wa.me/919346003698?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleCustomMessage = () => {
-    handleSendMessage(message);
+    if (!message.trim()) return;
+
+    // Format the message with user details
+    const fullMessage = `Hola, soy ${userName}.\nMi número es: ${selectedCountry.dialCode} ${phoneNumber}\n\n${message.trim()}`;
+
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(fullMessage);
+
+    // Open WhatsApp with the customer service number
+    const whatsappUrl = `https://wa.me/919346003698?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+
+    // Clear the message input
+    setMessage('');
+  };
+
+  const handleOpenChat = () => {
+    setIsOpen(!isOpen);
+    // Reset to contact form when reopening
+    if (!isOpen) {
+      setShowContactForm(true);
+      setShowQuickReplies(false);
+      setUserName('');
+      setPhoneNumber('');
+      setMessage('');
+      setChatMessages([
+        {
+          text: '¡Hola! 👋 Bienvenido a AG KEM. ¿En qué podemos ayudarte hoy?',
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
+    }
   };
 
   return (
@@ -101,81 +191,171 @@ const WhatsAppChat: React.FC = () => {
             ref={chatBodyRef}
             className="bg-[#E5DDD5] p-3 h-[300px] overflow-y-auto scroll-smooth"
           >
-            {/* Chat Messages */}
-            <div className="space-y-2">
-              {chatMessages.map((msg, idx) => (
-                <div
-                  key={idx}
-                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`rounded-lg p-2 shadow-sm max-w-[85%] ${
-                      msg.sender === 'user'
-                        ? 'bg-[#DCF8C6] rounded-tr-none'
-                        : 'bg-white rounded-tl-none'
-                    }`}
-                  >
-                    <p className="text-gray-800 text-xs leading-relaxed">
-                      {msg.text}
-                    </p>
-                    <p className="text-[9px] text-gray-500 mt-1 text-right">
-                      {msg.timestamp.toLocaleTimeString('es-MX', {
-                        hour: '2-digit',
-                        minute: '2-digit'
-                      })}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {showContactForm ? (
+              /* Contact Form */
+              <form onSubmit={handleContactFormSubmit} className="space-y-3">
+                <div className="bg-white rounded-lg p-3 shadow-sm">
+                  <p className="text-xs text-gray-700 mb-3">
+                    Por favor, completa tus datos para continuar:
+                  </p>
 
-            {/* Quick Reply Buttons */}
-            {showQuickReplies && (
-              <div className="space-y-1.5 mt-3">
-                {predefinedMessages.map((msg, idx) => (
+                  {/* Name Field */}
+                  <div className="mb-3">
+                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                      Nombre
+                    </label>
+                    <input
+                      type="text"
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
+                      placeholder="Tu nombre completo"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#25D366] text-xs"
+                    />
+                  </div>
+
+                  {/* Phone Number Field */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                      Número de teléfono
+                    </label>
+                    <div className="flex gap-2">
+                      {/* Country Code Dropdown */}
+                      <div className="relative" ref={dropdownRef}>
+                        <button
+                          type="button"
+                          onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                          className="flex items-center gap-1 px-2 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:border-[#25D366] text-xs"
+                        >
+                          <span className="text-base">{selectedCountry.flag}</span>
+                          <span className="text-xs">{selectedCountry.dialCode}</span>
+                          <ChevronDown size={12} />
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        {showCountryDropdown && (
+                          <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto z-50">
+                            {countries.map((country) => (
+                              <button
+                                key={country.code}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedCountry(country);
+                                  setShowCountryDropdown(false);
+                                }}
+                                className="w-full flex items-center gap-2 px-3 py-2 hover:bg-gray-50 text-left text-xs"
+                              >
+                                <span className="text-base">{country.flag}</span>
+                                <span className="flex-1">{country.name}</span>
+                                <span className="text-gray-500">{country.dialCode}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Phone Number Input */}
+                      <input
+                        type="tel"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
+                        placeholder="Número de teléfono"
+                        required
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#25D366] text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
                   <button
-                    key={idx}
-                    onClick={() => handleSendMessage(msg)}
-                    className="w-full bg-white hover:bg-gray-50 rounded-lg p-2 text-left text-[11px] text-gray-700 shadow-sm transition-colors border border-gray-200"
+                    type="submit"
+                    className="w-full mt-4 bg-[#25D366] hover:bg-[#20BA5A] text-white font-medium py-2 rounded-lg transition-colors text-xs"
                   >
-                    {msg}
+                    Continuar
                   </button>
-                ))}
-              </div>
+                </div>
+              </form>
+            ) : (
+              <>
+                {/* Chat Messages */}
+                <div className="space-y-2">
+                  {chatMessages.map((msg, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`rounded-lg p-2 shadow-sm max-w-[85%] ${
+                          msg.sender === 'user'
+                            ? 'bg-[#DCF8C6] rounded-tr-none'
+                            : 'bg-white rounded-tl-none'
+                        }`}
+                      >
+                        <p className="text-gray-800 text-xs leading-relaxed whitespace-pre-line">
+                          {msg.text}
+                        </p>
+                        <p className="text-[9px] text-gray-500 mt-1 text-right">
+                          {msg.timestamp.toLocaleTimeString('es-MX', {
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Quick Reply Buttons */}
+                {showQuickReplies && (
+                  <div className="space-y-1.5 mt-3">
+                    {predefinedMessages.map((msg, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleQuickReplyClick(msg)}
+                        className="w-full bg-white hover:bg-gray-50 rounded-lg p-2 text-left text-[11px] text-gray-700 shadow-sm transition-colors border border-gray-200"
+                      >
+                        {msg}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
 
-          {/* Input Area */}
-          <div className="bg-white p-2 border-t border-gray-200">
-            <div className="flex items-center gap-1.5">
-              <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    handleCustomMessage();
-                  }
-                }}
-                placeholder="Escribe tu mensaje..."
-                className="flex-1 px-3 py-1.5 border border-gray-300 rounded-full focus:outline-none focus:border-[#25D366] text-xs"
-              />
-              <button
-                onClick={handleCustomMessage}
-                disabled={!message.trim()}
-                className="bg-[#25D366] hover:bg-[#20BA5A] disabled:bg-gray-300 text-white rounded-full p-1.5 transition-colors"
-                aria-label="Enviar mensaje"
-              >
-                <Send size={16} />
-              </button>
+          {/* Input Area - Only show after contact form is submitted */}
+          {!showContactForm && (
+            <div className="bg-white p-2 border-t border-gray-200">
+              <div className="flex items-center gap-1.5">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleCustomMessage();
+                    }
+                  }}
+                  placeholder="Escribe tu mensaje..."
+                  className="flex-1 px-3 py-1.5 border border-gray-300 rounded-full focus:outline-none focus:border-[#25D366] text-xs"
+                />
+                <button
+                  onClick={handleCustomMessage}
+                  disabled={!message.trim()}
+                  className="bg-[#25D366] hover:bg-[#20BA5A] disabled:bg-gray-300 text-white rounded-full p-1.5 transition-colors"
+                  aria-label="Enviar mensaje"
+                >
+                  <Send size={16} />
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
 
       {/* Chat Button - 25% smaller */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpenChat}
         className="fixed bottom-4 right-4 sm:right-6 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full p-3 shadow-2xl z-50 transition-all duration-300 hover:scale-110 active:scale-95"
         aria-label={isOpen ? 'Cerrar chat de WhatsApp' : 'Abrir chat de WhatsApp'}
       >
