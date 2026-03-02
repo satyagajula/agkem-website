@@ -253,16 +253,11 @@ const IndividualProductClient: React.FC<Props> = ({
                         href={doc.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:shadow-md group"
+                        className="inline-flex items-center justify-center gap-2 bg-agkem-primary text-white px-6 py-3 rounded-lg hover:bg-agkem-accent transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold text-sm sm:text-base"
                       >
-                        <FileText className="w-8 h-8 text-agkem-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium text-gray-800 text-sm group-hover:text-agkem-primary transition-colors truncate">
-                            {doc.name}
-                          </p>
-                          <p className="text-xs text-gray-500">PDF</p>
-                        </div>
-                        <Download className="w-5 h-5 text-gray-400 group-hover:text-agkem-primary transition-colors flex-shrink-0" />
+                        <FileText className="w-5 h-5 flex-shrink-0" />
+                        <span className="truncate">{doc.name}</span>
+                        <Download className="w-5 h-5 flex-shrink-0" />
                       </a>
                     ))}
                   </div>
