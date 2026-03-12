@@ -2,6 +2,9 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/GajulaSivaNagaSatyaS/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\GajulaSivaNagaSatyaS\\Desktop\\PAGINA WEB\\FUNGICIDAS\\PIRACLOSTROBINA - SLASH 250"
     ]
   }
 }
