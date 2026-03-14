@@ -40,7 +40,7 @@ const ProductDetailClient: React.FC<Props> = ({ slug, products, backgroundImage 
 
   const insecticidasList = [
     { title: "ABAMECTINA 1.8 CE", subtitle: "ABAMECTINA 1.8 CE", slug: "abamectina18ce" },
-    { title: "APRID 200", subtitle: "ACETAMIPRID 200", slug: "aprid200" },
+    { title: "KAPRID 200", subtitle: "ACETAMIPRID 200", slug: "kaprid200" },
     { title: "ALFA 1.8", subtitle: "BENZOATO DE EMAMECTINA 1.8", slug: "alfa18" },
     { title: "KOROS", subtitle: "SPINOSAD 480", slug: "koros" },
   ];

@@ -112,7 +112,7 @@ const Header: React.FC = () => {
       slug: 'insecticidas',
       products: [
         { title: 'ABAMECTINA 1.8 CE', slug: 'abamectina18ce' },
-        { title: 'APRID 200', slug: 'aprid200' },
+        { title: 'KAPRID 200', slug: 'kaprid200' },
         { title: 'ALFA 1.8', slug: 'alfa18' },
         { title: 'KOROS', slug: 'koros' },
       ],
